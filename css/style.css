@@ -3,8 +3,9 @@ body {
   margin: 0;
 }
 
-nav {background:#222;
-     padding: 12px;
+nav {
+  background:#222;
+  padding: 12px;
     }
 
 nav a {
@@ -15,4 +16,29 @@ nav a {
 
 main {
   padding:20px;
+}
+
+
+#events { 
+  padding: 40px; 
+  background-color: #f4f4f4; 
+} 
+
+.event-list { 
+  display: grid; 
+  gap: 20px; 
+} 
+
+.event-card { 
+  background: white; 
+  padding: 15px; 
+  border-left: 6px solid #1f3d2b 
+} 
+
+.event-card h3 { 
+  margin: 0; 
+}
+
+.event-card p { 
+  margin: 5px 0;
 }

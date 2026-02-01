@@ -1,44 +1,80 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
 }
 
 nav {
-  background:#222;
-  padding: 12px;
+    background:#222;
+    padding: 12px;
     }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  margin-right: 15px;
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
 }
 
 main {
-  padding:20px;
+    padding:20px;
 }
 
 
 #events { 
-  padding: 40px; 
-  background-color: #f4f4f4; 
+    padding: 40px; 
+    background-color: #f4f4f4; 
 } 
 
 .event-list { 
-  display: grid; 
-  gap: 20px; 
+    display: grid; 
+    gap: 20px; 
 } 
 
 .event-card { 
-  background: white; 
-  padding: 15px; 
-  border-left: 6px solid #1f3d2b 
+    background: white; 
+    padding: 15px; 
+    border-left: 6px solid #1f3d2b 
 } 
 
 .event-card h3 { 
-  margin: 0; 
+    margin: 0; 
 }
 
 .event-card p { 
-  margin: 5px 0;
+    margin: 5px 0;
+}
+
+#spotlight { 
+    padding:40px; 
+    background-color: #e8f0e8; 
+} 
+
+.spotlight-list {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
+} 
+
+.spotlight-card { 
+    background: white; 
+    padding:20px; 
+    border: 2px solid #1f3d2b; 
+    border-radius: 8px; 
+} 
+
+.spotlight-card h3 { 
+    margin-top: 0; 
+} 
+
+.spotlight-card p { 
+    margin: 10px 0;
+} 
+
+.spotlight-card a { 
+    color: #1f3d2b; 
+    text-decoration: none; 
+    font-weight: bold; 
+} 
+
+.spotlight-card a:hover { 
+    text-decoration: underline; 
 }

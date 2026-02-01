@@ -19,7 +19,7 @@ body {
 }
 
 .navlinks li {
-    position: relative;          
+    margin-right: 20px;   /* spacing between buttons */
 }
 
 .navlinks li a {
@@ -32,34 +32,6 @@ body {
 .navlinks li a:hover {
     background-color: #16301d;
     color: #e8f0e8;
-}
-
-.dropdown-menu {
-    display: none;               
-    position: absolute;
-    top: 100%;                   
-    left: 0;
-    background-color: white;
-    min-width: 180px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 100;
-}
-
-.dropdown-menu li a {
-    color: #1f3d2b;
-    padding: 12px 16px;
-}
-
-.dropdown-menu li a:hover {
-    background-color: #e8f0e8;
-}
-
-.navlinks li.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #16301d;
 }
 
 main {

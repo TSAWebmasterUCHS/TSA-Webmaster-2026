@@ -35,4 +35,25 @@ if (eventlist) {
       eventlist.appendChild(card); 
   }); 
 }
-               
+
+const resourceForm = document.getElementById("resourceForm"); 
+const formMessage = document.getElementById("formMessage"); 
+
+if (resourceForm) { 
+    resourceForm.addEventlistener("submit", function(e) { 
+        e.preventDefault(); 
+
+
+       formMessage.textContent = "Thank you! Your resource has been submitted."; 
+       formMessage.style.color = "#1f3d2b"; 
+       formMessage.style.fontweight ="bold"; 
+
+
+       resourceForm.reset(); 
+
+
+       setTimeout(() => { 
+            formMessage.textContent = ""; 
+       }, 5000); 
+   }); 
+}

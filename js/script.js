@@ -57,3 +57,55 @@ if (resourceForm) {
        }, 5000); 
    }); 
 }
+
+const monthYear = document.getElementById("monthYear");
+const calendarGrid = document.querySelector(".calendar-grid");
+const prevMonth = document.getElementById("prevMonth");
+const nextMonth = document.getElementById("nextMonth");
+
+if (monthYear && calendarGrid) {
+  let currentDate = new Date();
+
+  function renderCalendar() {
+    calendarGrid.innerHTML = `
+      <div class="day-name">Sun</div>
+      <div class="day-name">Mon</div>
+      <div class="day-name">Tue</div>
+      <div class="day-name">Wed</div>
+      <div class="day-name">Thu</div>
+      <div class="day-name">Fri</div>
+      <div class="day-name">Sat</div>
+    `;
+
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+
+    monthYear.textContent = currentDate.toLocaleString("default", {
+      month: "long",
+      year: "numeric"
+    });
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const lastDate = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 0; i < firstDay; i++) {
+      calendarGrid.innerHTML += `<div></div>`;
+    }
+
+    for (let day = 1; day <= lastDate; day++) {
+      calendarGrid.innerHTML += `<div class="day">${day}</div>`;
+    }
+  }
+
+  prevMonth.addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+  });
+
+  nextMonth.addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+  });
+
+  renderCalendar();
+}

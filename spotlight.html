@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotlight Resources</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <!-- Your header/nav links here -->
+    </nav>
+    <h1>Community Spotlight</h1>
+    <p>Highlighting great local resources and initiatives in our community.</p>
+  </header>
+
+  <main>
+    <!-- Spotlight Resources -->
+    <section id="spotlight-resources">
+      <h2>Spotlight Resources</h2>
+      <div class="spotlight-list">
+        <div class="spotlight-card">
+          <h3>Union County Library</h3>
+          <p>A great place for books, events, and learning resources for all ages.</p>
+          <p>Website: <a href="https://www.unioncountylibrary.com" target="_blank">unioncountylibrary.com</a></p>
+        </div>
+        <div class="spotlight-card">
+          <h3>Community Garden</h3>
+          <p>Volunteer-run garden offering fresh produce and gardening classes.</p>
+          <p>Website: <a href="https://www.communitygarden.org" target="_blank">communitygarden.org</a></p>
+        </div>
+        <div class="spotlight-card">
+          <h3>Local Youth Center</h3>
+          <p>After-school programs, sports, and mentoring for children and teens.</p>
+          <p>Website: <a href="https://www.localyouthcenter.com" target="_blank">localyouthcenter.com</a></p>
+        </div>
+        <div class="spotlight-card">
+          <h3>Historical Society</h3>
+          <p>Preserving local history with tours, exhibits, and educational programs.</p>
+          <p>Website: <a href="https://www.historicalsociety.org" target="_blank">historicalsociety.org</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Submission Form -->
+    <section id="submit-resource">
+      <h2>Submit a Community Resource</h2>
+      <form id="resource-form">
+        <label for="resource-name">Resource Name:</label>
+        <input type="text" id="resource-name" name="resource-name" required>
+
+        <label for="resource-location">Location:</label>
+        <input type="text" id="resource-location" name="resource-location" required>
+
+        <label for="resource-website">Website:</label>
+        <input type="url" id="resource-website" name="resource-website" required>
+
+        <button type="submit">Submit Resource</button>
+      </form>
+      <p id="form-message"></p>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Your footer here -->
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

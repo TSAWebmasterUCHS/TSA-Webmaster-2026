@@ -166,20 +166,30 @@ main {
   margin-top: 10px;
 }
 
-footer {
-  background-color: #2b2b2b; 
-  color: white;
-  padding: 40px 20px 20px 20px;
-  font-size: 15px;
+/* FORCE FOOTER HORIZONTAL LAYOUT */
+footer, .footer-container, .footer-section {
+  all: unset;  /* remove any previous styles that break flex */
 }
 
 .footer-container {
   display: flex !important;
   justify-content: space-between !important;
+  flex-wrap: wrap !important;
   max-width: 1100px;
   margin: 0 auto;
-  flex-wrap: wrap !important; 
   gap: 30px;
+}
+
+.footer-section {
+  flex: 1;             /* evenly space the sections */
+  min-width: 200px;    /* prevents shrinking too small */
+}
+
+footer {
+  background-color: #2b2b2b; /* charcoal background */
+  color: white;
+  padding: 40px 20px 20px 20px;
+  font-size: 15px;
 }
 
 .footer-section h3 {

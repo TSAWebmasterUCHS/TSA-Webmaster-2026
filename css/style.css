@@ -4,26 +4,27 @@ body {
 }
 
 nav {
-  background-color: #2b2b2b; 
-  padding: 18px 30px;
+  background-color: #2b2b2b; /* charcoal black */
+  padding: 15px 30px;
 }
 
 .nav-links {
   list-style: none;
-  display: flex;
-  justify-content: flex-end; /* PUSH TO THE RIGHT */
+  display: flex;           /* makes list horizontal */
+  justify-content: flex-end; /* pushes links to the right */
   margin: 0;
   padding: 0;
 }
 
 .nav-links li {
-  margin-left: 20px;
+  margin-left: 25px;       /* spacing between links */
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  font-size: 16px;
 }
 
 .nav-links a:hover {

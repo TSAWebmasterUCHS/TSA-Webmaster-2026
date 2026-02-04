@@ -1,63 +1,80 @@
-console.log("JavaScript is connected!")
+console.log("JavaScript is connected!");
 
+// -------------------- EVENTS LIST --------------------
 const events = [
   { 
-        title: "Union County Farmers Market", 
-        date: "March 15, 2026", 
-        location: "Downtown Blairsville",  
-        description: "Fresh local produce and family-friendly activities." 
+    title: "Union County Farmers Market", 
+    date: "March 15, 2026", 
+    location: "Downtown Blairsville",  
+    description: "Fresh local produce and family-friendly activities." 
   }, 
   { 
-        title: "Library Story Time", 
-        date: "March 20, 2026",  
-        location: "Union County Public Library", 
-        description: "Weekly reading event for young children." 
+    title: "Library Story Time", 
+    date: "March 20, 2026",  
+    location: "Union County Public Library", 
+    description: "Weekly reading event for young children." 
   },
   {
-        title: "Community Health Fair", 
-        date: "April 5, 2026",
-        location: "Union General Hospital", 
-        description: "Free screenings and health resources for families." 
+    title: "Community Health Fair", 
+    date: "April 5, 2026",
+    location: "Union General Hospital", 
+    description: "Free screenings and health resources for families." 
   } 
-]; 
+];
 
-const eventlist = document.getElementById("eventlist"); 
-if (eventlist) { 
-    events.forEach(event => { 
-        const card = document.createElement("div"); 
-        card.classList.add("event-card"); 
-        card.innerHTML = ' 
-            <h3>${event.title}</h3> 
-            <p><strong>Date:</strong> ${event.date}</p> 
-            <p><strong>Location: </strong> ${event.location}</p> 
-            <p>${event.description}</p> 
-        '; 
-      eventlist.appendChild(card); 
-  }); 
+const eventList = document.getElementById("eventlist");
+if (eventList) {
+  events.forEach(event => {
+    const card = document.createElement("div");
+    card.classList.add("event-card");
+    card.innerHTML = `
+      <h3>${event.title}</h3>
+      <p><strong>Date:</strong> ${event.date}</p>
+      <p><strong>Location:</strong> ${event.location}</p>
+      <p>${event.description}</p>
+    `;
+    eventList.appendChild(card);
+  });
 }
 
-const resourceForm = document.getElementById("resourceForm"); 
-const formMessage = document.getElementById("formMessage"); 
+// -------------------- RESOURCE SUBMISSION FORM --------------------
+const resourceForm = document.getElementById("resource-form");
+const formMessage = document.getElementById("form-message");
 
-if (resourceForm) { 
-    resourceForm.addEventlistener("submit", function(e) { 
-        e.preventDefault(); 
+if (resourceForm) {
+  resourceForm.addEventListener("submit", function(e) {
+    e.preventDefault();
 
+    const name = document.getElementById('resource-name').value;
+    const location = document.getElementById('resource-location').value;
+    const website = document.getElementById('resource-website').value;
 
-       formMessage.textContent = "Thank you! Your resource has been submitted."; 
-       formMessage.style.color = "#1f3d2b"; 
-       formMessage.style.fontweight ="bold"; 
+    const list = document.querySelector('.spotlight-list');
 
+    // Create new spotlight card
+    const card = document.createElement('div');
+    card.className = 'spotlight-card';
+    card.innerHTML = `
+      <h3>${name}</h3>
+      <p>Location: ${location}</p>
+      <p>Website: <a href="${website}" target="_blank">${website}</a></p>
+    `;
+    list.appendChild(card);
 
-       resourceForm.reset(); 
+    // Clear form and show confirmation
+    this.reset();
+    formMessage.textContent = 'Resource submitted!';
+    formMessage.style.color = "#1f3d2b";
+    formMessage.style.fontWeight = "bold";
 
-
-       setTimeout(() => { 
-            formMessage.textContent = ""; 
-       }, 5000); 
-   }); 
+    // Remove message after 5 seconds
+    setTimeout(() => {
+      formMessage.textContent = "";
+    }, 5000);
+  });
 }
 
+// -------------------- CALENDAR --------------------
 const monthYear = document.getElementById("monthYear");
 const calendarGrid = document.querySelector(".calendar-grid");
 const prevMonth = document.getElementById("prevMonth");
@@ -88,10 +105,12 @@ if (monthYear && calendarGrid) {
     const firstDay = new Date(year, month, 1).getDay();
     const lastDate = new Date(year, month + 1, 0).getDate();
 
+    // Empty divs for days before the first day
     for (let i = 0; i < firstDay; i++) {
       calendarGrid.innerHTML += `<div></div>`;
     }
 
+    // Days of the month
     for (let day = 1; day <= lastDate; day++) {
       calendarGrid.innerHTML += `<div class="day">${day}</div>`;
     }
@@ -110,27 +129,3 @@ if (monthYear && calendarGrid) {
   renderCalendar();
 }
 
-document.getElementById('resource-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const name = document.getElementById('resource-name').value;
-  const location = document.getElementById('resource-location').value;
-  const website = document.getElementById('resource-website').value;
-
-  const list = document.querySelector('.spotlight-list');
-
-  // Create new spotlight card
-  const card = document.createElement('div');
-  card.className = 'spotlight-card';
-  card.innerHTML = `
-    <h3>${name}</h3>
-    <p>Location: ${location}</p>
-    <p>Website: <a href="${website}" target="_blank">${website}</a></p>
-  `;
-
-  list.appendChild(card);
-
-  // Clear form and show confirmation
-  this.reset();
-  document.getElementById('form-message').textContent = 'Resource submitted!';
-});

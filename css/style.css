@@ -254,3 +254,25 @@ footer {
   width: 100%;
   border-radius: 8px;
 }
+
+.spotlight-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.spotlight-card {
+  flex: 1 1 250px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.spotlight-card h3 {
+  margin-top: 0;
+}
+
+.spotlight-card p {
+  margin-bottom: 10px;
+}

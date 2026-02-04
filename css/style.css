@@ -3,35 +3,31 @@ body {
     margin: 0;
 }
 
-.nav {
-    display: flex;                 
-    justify-content: space-between; 
-    align-items: center;
-    background-color: #1c2e4a;
-    padding: 10px 20px;
+nav {
+  background-color: #2b2b2b; 
+  padding: 18px 30px;
 }
 
-.navlinks {
-    list-style: none;
-    display: flex;                
-    margin: 0;
-    padding: 0;
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end; /* PUSH TO THE RIGHT */
+  margin: 0;
+  padding: 0;
 }
 
-.navlinks li {
-    margin-right: 20px;   
+.nav-links li {
+  margin-left: 20px;
 }
 
-.navlinks li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: block;
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.navlinks li a:hover {
-    background-color: #16301d;
-    color: #e8f0e8;
+.nav-links a:hover {
+  text-decoration: underline;
 }
 
 main {

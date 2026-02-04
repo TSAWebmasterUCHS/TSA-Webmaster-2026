@@ -109,3 +109,28 @@ if (monthYear && calendarGrid) {
 
   renderCalendar();
 }
+
+document.getElementById('resource-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('resource-name').value;
+  const location = document.getElementById('resource-location').value;
+  const website = document.getElementById('resource-website').value;
+
+  const list = document.querySelector('.spotlight-list');
+
+  // Create new spotlight card
+  const card = document.createElement('div');
+  card.className = 'spotlight-card';
+  card.innerHTML = `
+    <h3>${name}</h3>
+    <p>Location: ${location}</p>
+    <p>Website: <a href="${website}" target="_blank">${website}</a></p>
+  `;
+
+  list.appendChild(card);
+
+  // Clear form and show confirmation
+  this.reset();
+  document.getElementById('form-message').textContent = 'Resource submitted!';
+});

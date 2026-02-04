@@ -276,3 +276,9 @@ footer {
 .spotlight-card p {
   margin-bottom: 10px;
 }
+
+.submit-instructions {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #333;
+}

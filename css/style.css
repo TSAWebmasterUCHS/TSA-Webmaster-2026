@@ -282,3 +282,35 @@ footer {
   font-size: 0.95rem;
   color: #333;
 }
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.day-name {
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+.has-event {
+  background-color: #e6f4ec;
+  border: 2px solid #1f3d2b;
+}
+
+.has-event a {
+  text-decoration: none;
+  color: #1f3d2b;
+  font-size: 0.75rem;
+  display: block;
+  margin-top: 4px;
+}

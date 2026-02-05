@@ -1,41 +1,46 @@
 console.log("JavaScript is connected!");
 
 // -------------------- EVENTS LIST --------------------
-const events = [
-  { 
-    title: "Union County Farmers Market", 
-    date: "March 15, 2026", 
-    location: "Downtown Blairsville",  
-    description: "Fresh local produce and family-friendly activities." 
-  }, 
-  { 
-    title: "Library Story Time", 
-    date: "March 20, 2026",  
-    location: "Union County Public Library", 
-    description: "Weekly reading event for young children." 
+const events = {
+  "2026-03-15": {
+    title: "Union County Farmers Market",
+    location: "Downtown Blairsville",
+    description: "Fresh local produce and family-friendly activities.",
+    link: "https://example.com/farmersmarket"
   },
-  {
-    title: "Community Health Fair", 
-    date: "April 5, 2026",
-    location: "Union General Hospital", 
-    description: "Free screenings and health resources for families." 
-  } 
-];
+  "2026-03-20": {
+    title: "Library Story Time",
+    location: "Union County Public Library",
+    description: "Weekly reading event for young children.",
+    link: "https://example.com/storytime"
+  },
+  "2026-04-05": {
+    title: "Community Health Fair",
+    location: "Union General Hospital",
+    description: "Free screenings and health resources for families.",
+    link: "https://example.com/healthfair"
+  }
+};
 
 const eventList = document.getElementById("eventlist");
+
 if (eventList) {
-  events.forEach(event => {
+  Object.keys(events).forEach(date => {
+    const event = events[date];
+
     const card = document.createElement("div");
     card.classList.add("event-card");
     card.innerHTML = `
       <h3>${event.title}</h3>
-      <p><strong>Date:</strong> ${event.date}</p>
+      <p><strong>Date:</strong> ${date}</p>
       <p><strong>Location:</strong> ${event.location}</p>
       <p>${event.description}</p>
+      <a href="${event.link}" target="_blank">More Info</a>
     `;
     eventList.appendChild(card);
   });
 }
+
 
 // -------------------- RESOURCE SUBMISSION FORM --------------------
 const resourceForm = document.getElementById("resource-form");
@@ -110,11 +115,29 @@ if (monthYear && calendarGrid) {
       calendarGrid.innerHTML += `<div></div>`;
     }
 
-    // Days of the month
-    for (let day = 1; day <= lastDate; day++) {
-      calendarGrid.innerHTML += `<div class="day">${day}</div>`;
-    }
+for (let day = 1; day <= lastDate; day++) {
+  const fullDate = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+  let eventHTML = "";
+
+  if (events[fullDate]) {
+    eventHTML = `
+      <a href="${events[fullDate].link}" 
+         target="_blank" 
+         class="calendar-event">
+        ${events[fullDate].title}
+      </a>
+    `;
   }
+
+  calendarGrid.innerHTML += `
+    <div class="day">
+      <span class="day-number">${day}</span>
+      ${eventHTML}
+    </div>
+  `;
+}
+
 
   prevMonth.addEventListener("click", () => {
     currentDate.setMonth(currentDate.getMonth() - 1);
@@ -128,4 +151,3 @@ if (monthYear && calendarGrid) {
 
   renderCalendar();
 }
-

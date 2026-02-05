@@ -1,27 +1,25 @@
 console.log("JavaScript is connected!");
 
-// -------------------- EVENTS LIST --------------------
+// -------------------- EVENTS DATA --------------------
 const events = {
-  "2026-03-15": {
-    title: "Union County Farmers Market",
+  "2026-03-12": {
+    title: "Community Cleanup Day",
     location: "Downtown Blairsville",
-    description: "Fresh local produce and family-friendly activities.",
-    link: "https://example.com/farmersmarket"
+    link: "https://example.com/event1"
   },
-  "2026-03-20": {
-    title: "Library Story Time",
-    location: "Union County Public Library",
-    description: "Weekly reading event for young children.",
-    link: "https://example.com/storytime"
+  "2026-03-18": {
+    title: "Local Business Workshop",
+    location: "Union County Library",
+    link: "https://example.com/event2"
   },
-  "2026-04-05": {
-    title: "Community Health Fair",
-    location: "Union General Hospital",
-    description: "Free screenings and health resources for families.",
-    link: "https://example.com/healthfair"
+  "2026-03-25": {
+    title: "Spring Festival",
+    location: "Town Square",
+    link: "https://example.com/event3"
   }
 };
 
+// -------------------- EVENTS LIST --------------------
 const eventList = document.getElementById("eventlist");
 
 if (eventList) {
@@ -34,48 +32,9 @@ if (eventList) {
       <h3>${event.title}</h3>
       <p><strong>Date:</strong> ${date}</p>
       <p><strong>Location:</strong> ${event.location}</p>
-      <p>${event.description}</p>
       <a href="${event.link}" target="_blank">More Info</a>
     `;
     eventList.appendChild(card);
-  });
-}
-
-
-// -------------------- RESOURCE SUBMISSION FORM --------------------
-const resourceForm = document.getElementById("resource-form");
-const formMessage = document.getElementById("form-message");
-
-if (resourceForm) {
-  resourceForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('resource-name').value;
-    const location = document.getElementById('resource-location').value;
-    const website = document.getElementById('resource-website').value;
-
-    const list = document.querySelector('.spotlight-list');
-
-    // Create new spotlight card
-    const card = document.createElement('div');
-    card.className = 'spotlight-card';
-    card.innerHTML = `
-      <h3>${name}</h3>
-      <p>Location: ${location}</p>
-      <p>Website: <a href="${website}" target="_blank">${website}</a></p>
-    `;
-    list.appendChild(card);
-
-    // Clear form and show confirmation
-    this.reset();
-    formMessage.textContent = 'Resource submitted!';
-    formMessage.style.color = "#1f3d2b";
-    formMessage.style.fontWeight = "bold";
-
-    // Remove message after 5 seconds
-    setTimeout(() => {
-      formMessage.textContent = "";
-    }, 5000);
   });
 }
 
@@ -85,7 +44,7 @@ const calendarGrid = document.querySelector(".calendar-grid");
 const prevMonth = document.getElementById("prevMonth");
 const nextMonth = document.getElementById("nextMonth");
 
-if (monthYear && calendarGrid) {
+if (monthYear && calendarGrid && prevMonth && nextMonth) {
   let currentDate = new Date();
 
   function renderCalendar() {
@@ -110,34 +69,26 @@ if (monthYear && calendarGrid) {
     const firstDay = new Date(year, month, 1).getDay();
     const lastDate = new Date(year, month + 1, 0).getDate();
 
-    // Empty divs for days before the first day
     for (let i = 0; i < firstDay; i++) {
       calendarGrid.innerHTML += `<div></div>`;
     }
 
-for (let day = 1; day <= lastDate; day++) {
-  const fullDate = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    for (let day = 1; day <= lastDate; day++) {
+      const dateKey = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 
-  let eventHTML = "";
-
-  if (events[fullDate]) {
-    eventHTML = `
-      <a href="${events[fullDate].link}" 
-         target="_blank" 
-         class="calendar-event">
-        ${events[fullDate].title}
-      </a>
-    `;
+      if (events[dateKey]) {
+        calendarGrid.innerHTML += `
+          <div class="day has-event">
+            <a href="${events[dateKey].link}" target="_blank">
+              ${day}<br><small>${events[dateKey].title}</small>
+            </a>
+          </div>
+        `;
+      } else {
+        calendarGrid.innerHTML += `<div class="day">${day}</div>`;
+      }
+    }
   }
-
-  calendarGrid.innerHTML += `
-    <div class="day">
-      <span class="day-number">${day}</span>
-      ${eventHTML}
-    </div>
-  `;
-}
-
 
   prevMonth.addEventListener("click", () => {
     currentDate.setMonth(currentDate.getMonth() - 1);
@@ -151,3 +102,4 @@ for (let day = 1; day <= lastDate; day++) {
 
   renderCalendar();
 }
+

@@ -1,17 +1,20 @@
 console.log("JavaScript is connected!");
 
 // -------------------- EVENTS DATA --------------------
-const calendarEvents = {
+const events = {
   "2026-03-12": {
-    name: "Community Cleanup Day",
+    title: "Community Cleanup Day",
+    location: "Downtown Blairsville",
     link: "https://example.com/event1"
   },
   "2026-03-18": {
-    name: "Local Business Workshop",
+    title: "Local Business Workshop",
+    location: "Union County Library",
     link: "https://example.com/event2"
   },
   "2026-03-25": {
-    name: "Spring Festival",
+    title: "Spring Festival",
+    location: "Town Square",
     link: "https://example.com/event3"
   }
 };

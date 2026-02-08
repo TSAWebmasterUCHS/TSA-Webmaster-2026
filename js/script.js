@@ -178,6 +178,8 @@ ourResources.forEach(resource => {
   } 
 }); 
 
+const allResources = document.getElementById("all-resources");
+
 resource.foreach(resource => {
   const li = document.createElement("li"); 
   li.innerHTML = '<a href="${resource.website}" target="_blank">${resource.name}</a>'; 

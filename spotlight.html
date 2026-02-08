@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
   <header>
     <nav>
       <ul class="nav-links">
@@ -17,49 +18,57 @@
         <li><a href="about.html">About</a></li>
       </ul>
     </nav>
-<section class="hero spotlight-hero">
-  <div class="hero-text">
-    <h1>Community Spotlight</h1>
-    <p>Highlighting great local resources and initiatives in our community.</p>
   </header>
 
+  <section class="hero spotlight-hero">
+    <div class="hero-text">
+      <h1>Discover Local Resources</h1>
+      <p>Explore the top initiatives, libraries, gardens, and community programs in our county.</p>
+    </div>
+  </section>
+
   <main>
-    <!-- Spotlight Resources -->
-    <section id="spotlight-resources">
+    
+    <section id="spotlight-section">
       <h2>Spotlight Resources</h2>
 
-      <input 
-        type="text" 
-        id="resource-search" 
-        placeholder="Search resources..."
-        style="width: 100%; padding:10px; margin-bottom: 20px; font-size: 16px;" 
-        > 
-      
       <div class="spotlight-list">
-        <div class="spotlight-card">
+        <div class="spotlight-card highlight">
           <h3>Union County Library</h3>
           <p>A great place for books, events, and learning resources for all ages.</p>
-          <p>Website: <a href="https://www.unioncountylibrary.com" target="_blank">unioncountylibrary.com</a></p>
+          <p><a href="https://www.unioncountylibrary.com" target="_blank">unioncountylibrary.com</a></p>
         </div>
-        <div class="spotlight-card">
+
+        <div class="spotlight-card highlight">
           <h3>Community Garden</h3>
           <p>Volunteer-run garden offering fresh produce and gardening classes.</p>
-          <p>Website: <a href="https://www.communitygarden.org" target="_blank">communitygarden.org</a></p>
+          <p><a href="https://www.communitygarden.org" target="_blank">communitygarden.org</a></p>
         </div>
-        <div class="spotlight-card">
+
+        <div class="spotlight-card highlight">
           <h3>Local Youth Center</h3>
           <p>After-school programs, sports, and mentoring for children and teens.</p>
-          <p>Website: <a href="https://www.localyouthcenter.com" target="_blank">localyouthcenter.com</a></p>
-        </div>
-        <div class="spotlight-card">
-          <h3>Historical Society</h3>
-          <p>Preserving local history with tours, exhibits, and educational programs.</p>
-          <p>Website: <a href="https://www.historicalsociety.org" target="_blank">historicalsociety.org</a></p>
+          <p><a href="https://www.localyouthcenter.com" target="_blank">localyouthcenter.com</a></p>
         </div>
       </div>
     </section>
 
-    <!-- Submission Form -->
+    <section id="all-resources-section">
+      <h2>All Community Resources</h2>
+
+      <input 
+        type="text" 
+        id="resource-search" 
+        placeholder="Search resources..." 
+        style="width: 100%; padding:10px; margin-bottom: 20px; font-size:16px;"
+      >
+
+      <div class="all-resources-list">
+    
+      </div>
+    </section>
+
+    <!-- SUBMISSION FORM -->
     <section id="submit-resource">
       <h2>Submit a Community Resource</h2>
       <form id="resource-form">
@@ -75,15 +84,15 @@
         <button type="submit">Submit Resource</button>
       </form>
 
-
       <p class="submit-instructions"> 
         Please submit only resources that are relevant to our community. We appreciate entries that are helpful, trustworthy, and provide value to everyone who visits this page.
+      </p>
       <p id="form-message"></p>
     </section>
   </main>
 
   <footer>
-    <!-- Your footer here -->
+
   </footer>
 
   <script src="js/script.js"></script>

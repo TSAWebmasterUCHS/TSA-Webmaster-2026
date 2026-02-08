@@ -122,58 +122,33 @@ if (nextMonth) nextMonth.addEventListener("click", () => { currentDate.setMonth(
 
 renderCalendar();
 
-// =======================
-// SPOTLIGHT RESOURCES
-// =======================
 const allResources = [
-  {
-    name: "Union County Library",
-    description: "A great place for books, events, and learning resources for all ages.",
-    website: "https://www.unioncountylibrary.com",
-    spotlight: true
-  },
-  {
-    name: "Community Garden",
-    description: "Volunteer-run garden offering fresh produce and gardening classes.",
-    website: "https://www.communitygarden.org",
-    spotlight: true
-  },
-  {
-    name: "Local Youth Center",
-    description: "After-school programs, sports, and mentoring for children and teens.",
-    website: "https://www.localyouthcenter.com",
-    spotlight: true
-  },
-  {
-    name: "Historical Society",
-    description: "Preserving local history with tours, exhibits, and education.",
-    website: "https://www.historicalsociety.org",
-    spotlight: false
-  }, 
-  {
-    name: "Another Resource", 
-    description: "description of the new resource.", 
-    website: "https://www.anotherresource.com", 
-    spotlight: false 
+  { name: "Union County Library", description: "Books, events, learning resources", website: "#", date: "2026-03-01", location: "123 Library St", spotlight: true },
+  { name: "Community Garden", description: "Volunteer-run garden", website: "#", date: "2026-03-10", location: "456 Garden Lane", spotlight: true },
+  { name: "Local Youth Center", description: "After-school programs", website: "#", date: "2026-03-15", location: "789 Youth Ave", spotlight: true },
+  { name: "Historical Society", description: "Preserving local history", website: "#", date: "2026-03-20", location: "101 History Rd", spotlight: false },
+  { name: "New Community Resource", description: "Example resource", website: "#", date: "2026-03-25", location: "202 New St", spotlight: false }
 ];
 
-function renderSpotlightResources(resources) {
-  const spotlightList = document.querySelector(".spotlight-list");
-  if (!spotlightList) return;
-  spotlightList.innerHTML = "";
-  resources.forEach(resource => {
-    const card = document.createElement("div");
-    card.classList.add("spotlight-card");
-    card.innerHTML = `
-      <h3>${resource.name}</h3>
-      <p>${resource.description}</p>
-      <p><a href="${resource.website}" target="_blank">Visit Website</a></p>
-    `;
-    spotlightList.appendChild(card);
-  });
-}
+const spotlightList = document.querySelector(".spotlight-list");
 
-// Search filter
+allResources.forEach(resource => {
+  const card = document.createElement("div");
+  card.className = "spotlight-card";
+
+  if (resource.spotlight) card.style.fontWeight = "bold";
+
+  card.innerHTML = `
+    <h3>${resource.name}</h3>
+    <p>${resource.description}</p>
+    <p><strong>Date:</strong> ${resource.date}</p>
+    <p><strong>Location:</strong> ${resource.location}</p>
+    <p>Website: <a href="${resource.website}" target="_blank">${resource.website}</a></p>
+  `;
+
+  spotlightList.appendChild(card);
+});
+
 const resourceSearch = document.getElementById("resource-search");
 if (resourceSearch) {
   resourceSearch.addEventListener("input", () => {

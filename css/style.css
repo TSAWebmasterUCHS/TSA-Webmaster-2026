@@ -126,15 +126,17 @@ main {
 
 .day {
   border: 1px solid #ccc;
-  padding: 15px;
-  min-height: 80px;
-  position: relative;
+  width: 100% 
+  aspectratio: 1 / 1;
+  padding: 5px;
+  box-sizing: border-box;
   display: flex; 
   flex-direction: column; 
   justify-content: flex-start; 
   align-items: flex-start; 
   font-size: 14px; 
-  background-color: white;
+  background-color: white; 
+  overflow: hidden;
 }
 
 .hero {
@@ -249,7 +251,7 @@ main {
 
 .day-number {
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .has-event {
@@ -262,6 +264,7 @@ main {
   font-size: 0.75rem;
   display: block;
   margin-top: 2px;
+  word-wrap: break-word;
 }
 body {
     font-family: Arial, sans-serif;

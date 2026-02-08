@@ -166,11 +166,6 @@ main {
   margin-top: 10px;
 }
 
-/* FORCE FOOTER HORIZONTAL LAYOUT */
-footer, .footer-container, .footer-section {
-  all: unset;  /* remove any previous styles that break flex */
-}
-
 .footer-container {
   display: flex !important;
   justify-content: space-between !important;

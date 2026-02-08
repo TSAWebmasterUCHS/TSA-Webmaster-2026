@@ -1,5 +1,6 @@
 console.log("JavaScript is connected!");
 
+// -------------------- EVENTS LIST --------------------
 const eventsListData = [
   { 
     title: "Union County Farmers Market", 
@@ -39,7 +40,7 @@ const eventsListData = [
   }
 ];
 
-// Render events list
+// -------------------- POPULATE EVENTS LIST --------------------
 const eventList = document.getElementById("eventlist");
 if (eventList) {
   eventsListData.forEach(event => {
@@ -55,14 +56,7 @@ if (eventList) {
   });
 }
 
-// =======================
-// CALENDAR
-// =======================
-const calendarEvents = {};
-eventsListData.forEach(e => {
-  calendarEvents[e.date] = { name: e.title, link: "#" };
-});
-
+// -------------------- CALENDAR --------------------
 const monthYear = document.getElementById("monthYear");
 const calendarGrid = document.querySelector(".calendar-grid");
 const prevMonth = document.getElementById("prevMonth");
@@ -70,10 +64,15 @@ const nextMonth = document.getElementById("nextMonth");
 
 let currentDate = new Date();
 
+// Convert events to object keyed by date
+const calendarEvents = {};
+eventsListData.forEach(e => {
+  calendarEvents[e.date] = { name: e.title, link: "#" };
+});
+
 function renderCalendar() {
   if (!calendarGrid || !monthYear) return;
 
-  // Add day names
   calendarGrid.innerHTML = `
     <div class="day-name">Sun</div>
     <div class="day-name">Mon</div>
@@ -95,18 +94,17 @@ function renderCalendar() {
   const firstDay = new Date(year, month, 1).getDay();
   const lastDate = new Date(year, month + 1, 0).getDate();
 
-  // Empty cells for first week
   for (let i = 0; i < firstDay; i++) {
     calendarGrid.innerHTML += `<div class="day"></div>`;
   }
 
-  // Days
   for (let day = 1; day <= lastDate; day++) {
     const fullDate = `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
-    let dayContent = `<div class="day"><div class="day-number">${day}</div>`;
+    let dayContent = `<div class="day">${day}`;
 
     if (calendarEvents[fullDate]) {
       dayContent += `<a href="${calendarEvents[fullDate].link}" target="_blank">${calendarEvents[fullDate].name}</a>`;
+      dayContent = `<div class="day has-event">${dayContent}</div>`;
     }
 
     dayContent += `</div>`;
@@ -119,44 +117,57 @@ if (nextMonth) nextMonth.addEventListener("click", () => { currentDate.setMonth(
 
 renderCalendar();
 
-const allResources = [
-  { name: "Union County Library", description: "Books, events, learning resources", website: "#", date: "2026-03-01", location: "123 Library St", spotlight: true },
-  { name: "Community Garden", description: "Volunteer-run garden", website: "#", date: "2026-03-10", location: "456 Garden Lane", spotlight: true },
-  { name: "Local Youth Center", description: "After-school programs", website: "#", date: "2026-03-15", location: "789 Youth Ave", spotlight: true },
-  { name: "Historical Society", description: "Preserving local history", website: "#", date: "2026-03-20", location: "101 History Rd", spotlight: false },
-  { name: "New Community Resource", description: "Example resource", website: "#", date: "2026-03-25", location: "202 New St", spotlight: false }
+// -------------------- SPOTLIGHT RESOURCES --------------------
+const ourResources = [
+  {
+    name: "Union County Library",
+    description: "A great place for books, events, and learning resources for all ages.",
+    website: "https://www.unioncountylibrary.com",
+    spotlight: true
+  },
+  {
+    name: "Community Garden",
+    description: "Volunteer-run garden offering fresh produce and gardening classes.",
+    website: "https://www.communitygarden.org",
+    spotlight: true
+  },
+  {
+    name: "Local Youth Center",
+    description: "After-school programs, sports, and mentoring for children and teens.",
+    website: "https://www.localyouthcenter.com",
+    spotlight: true
+  },
+  {
+    name: "Historical Society",
+    description: "Preserving local history with tours, exhibits, and educational programs.",
+    website: "https://www.historicalsociety.org",
+    spotlight: false
+  },
+  {
+    name: "Food Bank",
+    description: "Helps families in need with food and essentials.",
+    website: "https://www.localfoodbank.org",
+    spotlight: false
+  }
 ];
 
+// Containers
 const spotlightList = document.querySelector(".spotlight-list");
+const allResourcesList = document.querySelector(".all-resources-list");
 
-allResources.forEach(resource => {
+ourResources.forEach(resource => {
   const card = document.createElement("div");
   card.className = "spotlight-card";
-
-  if (resource.spotlight) card.style.fontWeight = "bold";
 
   card.innerHTML = `
     <h3>${resource.name}</h3>
     <p>${resource.description}</p>
-    <p><strong>Date:</strong> ${resource.date}</p>
-    <p><strong>Location:</strong> ${resource.location}</p>
     <p>Website: <a href="${resource.website}" target="_blank">${resource.website}</a></p>
   `;
 
-  spotlightList.appendChild(card);
+  if (resource.spotlight && spotlightList) {
+    spotlightList.appendChild(card);
+  } else if (!resource.spotlight && allResourcesList) {
+    allResourcesList.appendChild(card);
+  }
 });
-
-const resourceSearch = document.getElementById("resource-search");
-if (resourceSearch) {
-  resourceSearch.addEventListener("input", () => {
-    const searchValue = resourceSearch.value.toLowerCase();
-    const filteredResources = allResources.filter(resource =>
-      resource.name.toLowerCase().includes(searchValue) ||
-      resource.description.toLowerCase().includes(searchValue)
-    );
-    renderSpotlightResources(filteredResources);
-  });
-}
-
-// Initial render of all resources
-renderSpotlightResources(allResources);

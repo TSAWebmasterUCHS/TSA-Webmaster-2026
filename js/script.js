@@ -1,105 +1,115 @@
 console.log("JavaScript is connected!");
 
-// -------------------- EVENTS DATA --------------------
-const events = {
-  "2026-03-12": {
+const eventsListData = [
+  { 
+    title: "Union County Farmers Market", 
+    date: "2026-03-15", 
+    location: "Downtown Blairsville",  
+    description: "Fresh local produce and family-friendly activities." 
+  }, 
+  { 
+    title: "Library Story Time", 
+    date: "2026-03-20",  
+    location: "Union County Public Library", 
+    description: "Weekly reading event for young children." 
+  },
+  {
+    title: "Community Health Fair", 
+    date: "2026-04-05",
+    location: "Union General Hospital", 
+    description: "Free screenings and health resources for families." 
+  },
+  {
     title: "Community Cleanup Day",
-    location: "Downtown Blairsville",
-    link: "https://example.com/event1"
+    date: "2026-03-12",
+    location: "Main Street",
+    description: "Neighborhood cleanup event."
   },
-  "2026-03-18": {
+  {
     title: "Local Business Workshop",
-    location: "Union County Library",
-    link: "https://example.com/event2"
+    date: "2026-03-18",
+    location: "Community Center",
+    description: "Workshop for local business owners."
   },
-  "2026-03-25": {
+  {
     title: "Spring Festival",
-    location: "Town Square",
-    link: "https://example.com/event3"
+    date: "2026-03-25",
+    location: "Town Park",
+    description: "Fun festival with games and food."
   }
-};
+];
 
-// -------------------- EVENTS LIST --------------------
+// Convert events to an object keyed by date for calendar use
+const calendarEvents = {};
+eventsListData.forEach(e => {
+  calendarEvents[e.date] = { name: e.title, link: "#" }; // Add link if needed
+});
+
 const eventList = document.getElementById("eventlist");
-
 if (eventList) {
-  Object.keys(events).forEach(date => {
-    const event = events[date];
-
+  eventsListData.forEach(event => {
     const card = document.createElement("div");
     card.classList.add("event-card");
     card.innerHTML = `
       <h3>${event.title}</h3>
-      <p><strong>Date:</strong> ${date}</p>
+      <p><strong>Date:</strong> ${event.date}</p>
       <p><strong>Location:</strong> ${event.location}</p>
-      <a href="${event.link}" target="_blank">More Info</a>
+      <p>${event.description}</p>
     `;
     eventList.appendChild(card);
   });
 }
 
-// -------------------- CALENDAR --------------------
 const monthYear = document.getElementById("monthYear");
 const calendarGrid = document.querySelector(".calendar-grid");
 const prevMonth = document.getElementById("prevMonth");
 const nextMonth = document.getElementById("nextMonth");
 
-if (monthYear && calendarGrid && prevMonth && nextMonth) {
-  let currentDate = new Date();
+let currentDate = new Date();
 
-  function renderCalendar() {
-    calendarGrid.innerHTML = `
-      <div class="day-name">Sun</div>
-      <div class="day-name">Mon</div>
-      <div class="day-name">Tue</div>
-      <div class="day-name">Wed</div>
-      <div class="day-name">Thu</div>
-      <div class="day-name">Fri</div>
-      <div class="day-name">Sat</div>
-    `;
+function renderCalendar() {
+  if (!calendarGrid || !monthYear) return;
 
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
+  calendarGrid.innerHTML = `
+    <div class="day-name">Sun</div>
+    <div class="day-name">Mon</div>
+    <div class="day-name">Tue</div>
+    <div class="day-name">Wed</div>
+    <div class="day-name">Thu</div>
+    <div class="day-name">Fri</div>
+    <div class="day-name">Sat</div>
+  `;
 
-    monthYear.textContent = currentDate.toLocaleString("default", {
-      month: "long",
-      year: "numeric"
-    });
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
 
-    const firstDay = new Date(year, month, 1).getDay();
-    const lastDate = new Date(year, month + 1, 0).getDate();
+  monthYear.textContent = currentDate.toLocaleString("default", {
+    month: "long",
+    year: "numeric"
+  });
 
-    for (let i = 0; i < firstDay; i++) {
-      calendarGrid.innerHTML += `<div></div>`;
-    }
+  const firstDay = new Date(year, month, 1).getDay();
+  const lastDate = new Date(year, month + 1, 0).getDate();
 
-    for (let day = 1; day <= lastDate; day++) {
-      const dateKey = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-
-      if (events[dateKey]) {
-        calendarGrid.innerHTML += `
-          <div class="day has-event">
-            <a href="${events[dateKey].link}" target="_blank">
-              ${day}<br><small>${events[dateKey].title}</small>
-            </a>
-          </div>
-        `;
-      } else {
-        calendarGrid.innerHTML += `<div class="day">${day}</div>`;
-      }
-    }
+  for (let i = 0; i < firstDay; i++) {
+    calendarGrid.innerHTML += `<div></div>`;
   }
 
-  prevMonth.addEventListener("click", () => {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar();
-  });
+  for (let day = 1; day <= lastDate; day++) {
+    const fullDate = `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    let dayContent = `<div class="day">${day}`;
 
-  nextMonth.addEventListener("click", () => {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    renderCalendar();
-  });
+    if (calendarEvents[fullDate]) {
+      dayContent += `<a href="${calendarEvents[fullDate].link}" target="_blank">${calendarEvents[fullDate].name}</a>`;
+      dayContent = `<div class="day has-event">${dayContent}</div>`;
+    }
 
-  renderCalendar();
+    dayContent += `</div>`;
+    calendarGrid.innerHTML += dayContent;
+  }
 }
 
+if (prevMonth) prevMonth.addEventListener("click", () => { currentDate.setMonth(currentDate.getMonth() - 1); renderCalendar(); });
+if (nextMonth) nextMonth.addEventListener("click", () => { currentDate.setMonth(currentDate.getMonth() + 1); renderCalendar(); });
+
+renderCalendar();

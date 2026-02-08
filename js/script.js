@@ -168,17 +168,19 @@ const allResourcesList = document.querySelector(".all-resources-list");
 
 ourResources.forEach(resource => {
   const card = document.createElement("div");
-  card.className = "spotlight-card";
+    card.classlist.add("spotlight-card");
+    card.innerHTML = `
+      <h3>${resource.name}</h3>
+      <p>${resource.description}</p>
+      <p>Website: <a href="${resource.website}" target="_blank">${resource.website}</a></p>
+    `;
+    spotlightList.appendChild(card); 
+  } 
+}); 
 
-  card.innerHTML = `
-    <h3>${resource.name}</h3>
-    <p>${resource.description}</p>
-    <p>Website: <a href="${resource.website}" target="_blank">${resource.website}</a></p>
-  `;
-
-  if (resource.spotlight && spotlightList) {
-    spotlightList.appendChild(card);
-  } else if (!resource.spotlight && allResourcesList) {
-    allResourcesList.appendChild(card);
-  }
+resource.foreach(resource => {
+  const li = document.createElement("li"); 
+  li.innerHTML = '<a href="${resource.website}" target="_blank">${resource.name}</a>'; 
+  allResourcesList.appendChild(li);
 });
+ 

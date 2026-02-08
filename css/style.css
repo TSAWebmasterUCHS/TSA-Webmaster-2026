@@ -362,7 +362,7 @@ footer {
 
 .spotlight-hero {
   background-image: url('images/your-spotlight-image.jpg'); /* replace with your image path */
-  background-size: cover;         /* ensures full coverage */
+  background-size: contain;         /* ensures full coverage */
   background-position: center;    /* centers the image */
   background-repeat: no-repeat;  
   height: 400px;                  /* adjust height as needed */

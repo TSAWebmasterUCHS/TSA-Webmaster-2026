@@ -218,6 +218,9 @@ footer {
   font-size: 14px;
 }
 
+body { 
+    background: red !important; 
+}
 .intro {
   display: flex;
   align-items: center;

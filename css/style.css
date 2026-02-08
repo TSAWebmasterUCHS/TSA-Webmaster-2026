@@ -1,3 +1,7 @@
+* { 
+    outline: 5px solid lime !important; 
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;

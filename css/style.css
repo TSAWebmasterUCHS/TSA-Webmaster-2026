@@ -262,27 +262,26 @@ body {
     margin: 0;
 }
 
-/* -------------------- FOOTER FINAL FIX -------------------- */
 footer {
-  background-color: #2b2b2b; /* charcoal black */
+  background-color: #2b2b2b;
   color: white;
   padding: 40px 20px 20px 20px;
   font-size: 15px;
 }
 
 .footer-container {
-  display: flex !important;
-  flex-direction: row !important;   
-  justify-content: space-between !important;
-  flex-wrap: wrap !important;       
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
   max-width: 1100px;
   margin: 0 auto;
-  gap: 30px !important;
+  gap: 30px;
 }
 
 .footer-section {
-  flex: 1 1 200px !important;      
-  min-width: 200px !important;
+  flex: 1 1 200px;
+  min-width: 200px;
 }
 
 .footer-section h3 {
@@ -314,67 +313,4 @@ footer {
   border-top: 1px solid #444;
   padding-top: 15px;
   font-size: 14px;
-}
-
-/* FOOLPROOF FOOTER FIX */
-footer.footer-container,
-footer .footer-container,
-footer .footer-section {
-    display: flex !important;
-}
-
-footer .footer-container {
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    flex-wrap: wrap !important;
-    gap: 30px !important;
-    max-width: 1100px !important;
-    margin: 0 auto !important;
-}
-
-footer .footer-section {
-    flex: 1 1 200px !important;
-    min-width: 200px !important;
-    background-color: rgba(255,0,0,0.1); /* TEMP COLOR TO SEE LAYOUT */
-}
-
-footer .footer-bottom {
-    text-align: center !important;
-    margin-top: 30px !important;
-    border-top: 1px solid #444 !important;
-    padding-top: 15px !important;
-    font-size: 14px !important;
-    background-color: rgba(0,255,0,0.1); /* TEMP COLOR TO SEE LAYOUT */
-}
-
-/* Footer layout */
-.footer-container {
-  display: flex;           /* horizontal layout */
-  justify-content: space-between;
-  flex-wrap: wrap;         /* wraps on small screens */
-  max-width: 1100px;
-  margin: 0 auto;
-  gap: 30px;
-}
-
-.footer-section {
-  flex: 1 1 200px;         /* distribute sections evenly */
-  min-width: 200px;
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 30px;
-  border-top: 1px solid #444;
-  padding-top: 15px;
-}
-
-/* Footer links */
-.footer-section a {
-  color: white;
-  text-decoration: none;
-}
-
-.footer-section a:hover {
-  text-decoration: underline;
 }

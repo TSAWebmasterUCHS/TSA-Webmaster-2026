@@ -129,6 +129,12 @@ main {
   padding: 15px;
   min-height: 80px;
   position: relative;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  align-items: flex-start; 
+  font-size: 14px; 
+  background-color: white;
 }
 
 .hero {
@@ -241,14 +247,13 @@ main {
   margin-top: 10px;
 }
 
-.day-name {
+.day-number {
   font-weight: bold;
-  background-color: #f2f2f2;
+  margin-bottom: 5px;
 }
 
 .has-event {
   background-color: #e6f4ec;
-  border: 1px solid #1f3d2b;
 }
 
 .has-event a {
@@ -256,7 +261,7 @@ main {
   color: #1f3d2b;
   font-size: 0.75rem;
   display: block;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 body {
     font-family: Arial, sans-serif;

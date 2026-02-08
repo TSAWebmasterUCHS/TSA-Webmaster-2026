@@ -1,5 +1,8 @@
 console.log("JavaScript is connected!");
 
+// =======================
+// EVENTS LIST
+// =======================
 const eventsListData = [
   { 
     title: "Union County Farmers Market", 
@@ -39,12 +42,7 @@ const eventsListData = [
   }
 ];
 
-// Convert events to an object keyed by date for calendar use
-const calendarEvents = {};
-eventsListData.forEach(e => {
-  calendarEvents[e.date] = { name: e.title, link: "#" }; // Add link if needed
-});
-
+// Render events list
 const eventList = document.getElementById("eventlist");
 if (eventList) {
   eventsListData.forEach(event => {
@@ -60,6 +58,14 @@ if (eventList) {
   });
 }
 
+// =======================
+// CALENDAR
+// =======================
+const calendarEvents = {};
+eventsListData.forEach(e => {
+  calendarEvents[e.date] = { name: e.title, link: "#" };
+});
+
 const monthYear = document.getElementById("monthYear");
 const calendarGrid = document.querySelector(".calendar-grid");
 const prevMonth = document.getElementById("prevMonth");
@@ -70,6 +76,7 @@ let currentDate = new Date();
 function renderCalendar() {
   if (!calendarGrid || !monthYear) return;
 
+  // Add day names
   calendarGrid.innerHTML = `
     <div class="day-name">Sun</div>
     <div class="day-name">Mon</div>
@@ -91,35 +98,88 @@ function renderCalendar() {
   const firstDay = new Date(year, month, 1).getDay();
   const lastDate = new Date(year, month + 1, 0).getDate();
 
+  // Empty cells for first week
   for (let i = 0; i < firstDay; i++) {
-    calendarGrid.innerHTML += `<div></div>`;
+    calendarGrid.innerHTML += `<div class="day"></div>`;
   }
 
+  // Days
   for (let day = 1; day <= lastDate; day++) {
-  const fullDate = `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    const fullDate = `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    let dayContent = `<div class="day"><div class="day-number">${day}</div>`;
 
-  const dayDiv = document.createElement("div");
-  dayDiv.classList.add("day");
+    if (calendarEvents[fullDate]) {
+      dayContent += `<a href="${calendarEvents[fullDate].link}" target="_blank">${calendarEvents[fullDate].name}</a>`;
+    }
 
-  const number = document.createElement("div");
-  number.classList.add("day-number");
-  number.textContent = day;
-  dayDiv.appendChild(number);
-
-  if (calendarEvents[fullDate]) {
-    dayDiv.classList.add("has-event");
-
-    const eventLink = document.createElement("a");
-    eventLink.href = calendarEvents[fullDate].link;
-    eventLink.textContent = calendarEvents[fullDate].name;
-
-    dayDiv.appendChild(eventLink);
+    dayContent += `</div>`;
+    calendarGrid.innerHTML += dayContent;
   }
-
-  calendarGrid.appendChild(dayDiv);
 }
-  
+
 if (prevMonth) prevMonth.addEventListener("click", () => { currentDate.setMonth(currentDate.getMonth() - 1); renderCalendar(); });
 if (nextMonth) nextMonth.addEventListener("click", () => { currentDate.setMonth(currentDate.getMonth() + 1); renderCalendar(); });
 
 renderCalendar();
+
+// =======================
+// SPOTLIGHT RESOURCES
+// =======================
+const allResources = [
+  {
+    name: "Union County Library",
+    description: "A great place for books, events, and learning resources for all ages.",
+    website: "https://www.unioncountylibrary.com",
+    spotlight: true
+  },
+  {
+    name: "Community Garden",
+    description: "Volunteer-run garden offering fresh produce and gardening classes.",
+    website: "https://www.communitygarden.org",
+    spotlight: true
+  },
+  {
+    name: "Local Youth Center",
+    description: "After-school programs, sports, and mentoring for children and teens.",
+    website: "https://www.localyouthcenter.com",
+    spotlight: true
+  },
+  {
+    name: "Historical Society",
+    description: "Preserving local history with tours, exhibits, and education.",
+    website: "https://www.historicalsociety.org",
+    spotlight: false
+  }
+];
+
+function renderSpotlightResources(resources) {
+  const spotlightList = document.querySelector(".spotlight-list");
+  if (!spotlightList) return;
+  spotlightList.innerHTML = "";
+  resources.forEach(resource => {
+    const card = document.createElement("div");
+    card.classList.add("spotlight-card");
+    card.innerHTML = `
+      <h3>${resource.name}</h3>
+      <p>${resource.description}</p>
+      <p><a href="${resource.website}" target="_blank">Visit Website</a></p>
+    `;
+    spotlightList.appendChild(card);
+  });
+}
+
+// Search filter
+const resourceSearch = document.getElementById("resource-search");
+if (resourceSearch) {
+  resourceSearch.addEventListener("input", () => {
+    const searchValue = resourceSearch.value.toLowerCase();
+    const filteredResources = allResources.filter(resource =>
+      resource.name.toLowerCase().includes(searchValue) ||
+      resource.description.toLowerCase().includes(searchValue)
+    );
+    renderSpotlightResources(filteredResources);
+  });
+}
+
+// Initial render of all resources
+renderSpotlightResources(allResources);

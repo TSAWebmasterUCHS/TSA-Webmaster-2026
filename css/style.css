@@ -346,3 +346,35 @@ footer .footer-bottom {
     font-size: 14px !important;
     background-color: rgba(0,255,0,0.1); /* TEMP COLOR TO SEE LAYOUT */
 }
+
+/* Footer layout */
+.footer-container {
+  display: flex;           /* horizontal layout */
+  justify-content: space-between;
+  flex-wrap: wrap;         /* wraps on small screens */
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1 1 200px;         /* distribute sections evenly */
+  min-width: 200px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+}
+
+/* Footer links */
+.footer-section a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}

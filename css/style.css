@@ -95,6 +95,23 @@ main {
     text-decoration: underline; 
 }
 
+.all-resources-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  max-height: 600px;       
+  overflow-y: auto;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.all-resources-list .spotlight-card {
+  font-weight: normal;
+  padding: 15px;
+}
+
 .calendar {
   max-width: 800px;
   margin: 40px auto;

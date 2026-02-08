@@ -149,7 +149,12 @@ const allResources = [
     description: "Preserving local history with tours, exhibits, and education.",
     website: "https://www.historicalsociety.org",
     spotlight: false
-  }
+  }, 
+  {
+    name: "Another Resource", 
+    description: "description of the new resource.", 
+    website: "https://www.anotherresource.com", 
+    spotlight: false 
 ];
 
 function renderSpotlightResources(resources) {

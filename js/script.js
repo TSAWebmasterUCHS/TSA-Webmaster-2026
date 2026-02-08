@@ -98,17 +98,28 @@ function renderCalendar() {
     calendarGrid.innerHTML += `<div class="day"></div>`;
   }
 
-  for (let day = 1; day <= lastDate; day++) {
+ for (let day = 1; day <= lastDate; day++) {
     const fullDate = `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
-    let dayContent = `<div class="day">${day}`;
+    
+    // Always one .day div per day
+    const dayDiv = document.createElement("div");
+    dayDiv.classList.add("day");
+
+    const dayNumber = document.createElement("div");
+    dayNumber.classList.add("day-number");
+    dayNumber.textContent = day;
+    dayDiv.appendChild(dayNumber);
 
     if (calendarEvents[fullDate]) {
-      dayContent += `<a href="${calendarEvents[fullDate].link}" target="_blank">${calendarEvents[fullDate].name}</a>`;
-      dayContent = `<div class="day has-event">${dayContent}</div>`;
+      const eventLink = document.createElement("a");
+      eventLink.href = calendarEvents[fullDate].link;
+      eventLink.target = "_blank";
+      eventLink.textContent = calendarEvents[fullDate].name;
+      dayDiv.appendChild(eventLink);
+      dayDiv.classList.add("has-event");
     }
 
-    dayContent += `</div>`;
-    calendarGrid.innerHTML += dayContent;
+    calendarGrid.appendChild(dayDiv);
   }
 }
 

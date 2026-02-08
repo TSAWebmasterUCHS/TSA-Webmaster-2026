@@ -359,3 +359,42 @@ footer {
   font-size: 1.5rem;
   margin: 0;
 }
+
+.spotlight-hero {
+  background-image: url('images/your-spotlight-image.jpg'); /* replace with your image path */
+  background-size: cover;         /* ensures full coverage */
+  background-position: center;    /* centers the image */
+  background-repeat: no-repeat;  
+  height: 400px;                  /* adjust height as needed */
+  display: flex;
+  align-items: center;            /* vertically center text */
+  justify-content: center;        /* horizontally center text */
+  text-align: center;
+  position: relative;
+  color: white;                   /* text color */
+}
+
+.spotlight-hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* semi-transparent overlay for readability */
+}
+
+.spotlight-hero .hero-text {
+  position: relative;  /* bring text above overlay */
+  z-index: 1;
+}
+
+.spotlight-hero h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.spotlight-hero p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  max-width: 700px;
+  line-height: 1.5;
+}

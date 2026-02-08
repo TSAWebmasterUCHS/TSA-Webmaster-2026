@@ -1,8 +1,5 @@
 console.log("JavaScript is connected!");
 
-// =======================
-// EVENTS LIST
-// =======================
 const eventsListData = [
   { 
     title: "Union County Farmers Market", 

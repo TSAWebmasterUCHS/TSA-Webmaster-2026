@@ -1,4 +1,5 @@
-console.log("JavaScript is connected!");
+console.log("JavaScript is connected!"); 
+console.log("Calendar loaded");
 
 // -------------------- EVENTS LIST --------------------
 const eventsListData = [
@@ -190,3 +191,4 @@ resource.foreach(resource => {
   allResourcesList.appendChild(li);
 });
  
+console.log("End of JS file reached");

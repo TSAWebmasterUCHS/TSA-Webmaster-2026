@@ -58,75 +58,12 @@ if (eventList) {
 }
 
 // -------------------- CALENDAR --------------------
-console.log("Calendar loaded");
+document.addEventListener("DOMContentLoaded", () => { 
+  console.log("Calendar loaded"); 
 
-// EVENTS DATA (edit/add here)
-const calendarEvents = {
-  "2026-03-12": { title: "Community Cleanup Day", link: "#" },
-  "2026-03-15": { title: "Farmers Market", link: "#" },
-  "2026-03-18": { title: "Business Workshop", link: "#" },
-  "2026-03-20": { title: "Library Story Time", link: "#" },
-  "2026-03-25": { title: "Spring Festival", link: "#" }
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const monthYear = document.getElementById("monthYear");
   const calendarGrid = document.querySelector(".calendar-grid");
-  const prevMonth = document.getElementById("prevMonth");
-  const nextMonth = document.getElementById("nextMonth");
-
-  if (!calendarGrid || !monthYear) return;
-
-  let currentDate = new Date();
-
-  function renderCalendar() {
-    calendarGrid.innerHTML = `
-      <div class="day-name">Sun</div>
-      <div class="day-name">Mon</div>
-      <div class="day-name">Tue</div>
-      <div class="day-name">Wed</div>
-      <div class="day-name">Thu</div>
-      <div class="day-name">Fri</div>
-      <div class="day-name">Sat</div>
-    `;
-
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
-
-    monthYear.textContent = currentDate.toLocaleString("default", {
-      month: "long",
-      year: "numeric"
-    });
-
-    const firstDay = new Date(year, month, 1).getDay();
-    const lastDate = new Date(year, month + 1, 0).getDate();
-
-    for (let i = 0; i < firstDay; i++) {
-      calendarGrid.innerHTML += `<div></div>`;
-    }
-
-    for (let day = 1; day <= lastDate; day++) {
-      calendarGrid.innerHTML += `
-        <div class="day">
-          <div class="day-number">${day}</div>
-        </div>
-      `;
-    }
-  }
-
-  prevMonth.addEventListener("click", () => {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar();
-  });
-
-  nextMonth.addEventListener("click", () => {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    renderCalendar();
-  });
-
-  renderCalendar();
-});
+  if (calendarGrid) { 
+    calendarGRid.innerHTML = "<div style='color:red'>Calendar test works! </div>";
 
 // -------------------- SPOTLIGHT RESOURCES --------------------
 const ourResources = [

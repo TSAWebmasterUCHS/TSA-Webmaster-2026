@@ -57,18 +57,23 @@ if (eventList) {
 }
 
 // -------------------- CALENDAR --------------------
+console.log("Calendar loaded");
+
+// EVENTS DATA (edit/add here)
+const calendarEvents = {
+  "2026-03-12": { title: "Community Cleanup Day", link: "#" },
+  "2026-03-15": { title: "Farmers Market", link: "#" },
+  "2026-03-18": { title: "Business Workshop", link: "#" },
+  "2026-03-20": { title: "Library Story Time", link: "#" },
+  "2026-03-25": { title: "Spring Festival", link: "#" }
+};
+
 const monthYear = document.getElementById("monthYear");
 const calendarGrid = document.querySelector(".calendar-grid");
 const prevMonth = document.getElementById("prevMonth");
 const nextMonth = document.getElementById("nextMonth");
 
 let currentDate = new Date();
-
-// Convert events to object keyed by date
-const calendarEvents = {};
-eventsListData.forEach(e => {
-  calendarEvents[e.date] = { name: e.title, link: "#" };
-});
 
 function renderCalendar() {
   if (!calendarGrid || !monthYear) return;
@@ -92,39 +97,38 @@ function renderCalendar() {
   });
 
   const firstDay = new Date(year, month, 1).getDay();
-  const lastDate = new Date(year, month + 1, 0).getDate();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
 
   for (let i = 0; i < firstDay; i++) {
-    calendarGrid.innerHTML += `<div class="day"></div>`;
+    calendarGrid.innerHTML += `<div></div>`;
   }
 
- for (let day = 1; day <= lastDate; day++) {
-    const fullDate = `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
-    
-    // Always one .day div per day
-    const dayDiv = document.createElement("div");
-    dayDiv.classList.add("day");
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateKey = `${year}-${String(month + 1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
 
-    const dayNumber = document.createElement("div");
-    dayNumber.classList.add("day-number");
-    dayNumber.textContent = day;
-    dayDiv.appendChild(dayNumber);
+    let html = `
+      <div class="day">
+        <div class="day-number">${day}</div>
+    `;
 
-    if (calendarEvents[fullDate]) {
-      const eventLink = document.createElement("a");
-      eventLink.href = calendarEvents[fullDate].link;
-      eventLink.target = "_blank";
-      eventLink.textContent = calendarEvents[fullDate].name;
-      dayDiv.appendChild(eventLink);
-      dayDiv.classList.add("has-event");
+    if (calendarEvents[dateKey]) {
+      html += `<a href="${calendarEvents[dateKey].link}">${calendarEvents[dateKey].title}</a>`;
     }
 
-    calendarGrid.appendChild(dayDiv);
+    html += `</div>`;
+    calendarGrid.innerHTML += html;
   }
 }
 
-if (prevMonth) prevMonth.addEventListener("click", () => { currentDate.setMonth(currentDate.getMonth() - 1); renderCalendar(); });
-if (nextMonth) nextMonth.addEventListener("click", () => { currentDate.setMonth(currentDate.getMonth() + 1); renderCalendar(); });
+prevMonth?.addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  renderCalendar();
+});
+
+nextMonth?.addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  renderCalendar();
+});
 
 renderCalendar();
 

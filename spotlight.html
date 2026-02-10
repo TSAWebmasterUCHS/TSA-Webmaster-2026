@@ -72,27 +72,35 @@
     </section>
 
     <!-- SUBMISSION FORM -->
-    <section id="submit-resource">
-      <h2>Submit a Community Resource</h2>
-      <form id="resource-form">
-        <label for="resource-name">Resource Name:</label>
-        <input type="text" id="resource-name" name="resource-name" required>
+   <section id="submit-resource" class="submit-card">
+  <h2>Submit a Community Resource</h2>
 
-        <label for="resource-location">Location:</label>
-        <input type="text" id="resource-location" name="resource-location" required>
+  <p class="submit-instructions">
+    Please submit only resources that are relevant to our community. Submissions should be helpful, trustworthy, and valuable to local residents.
+  </p>
 
-        <label for="resource-website">Website:</label>
-        <input type="url" id="resource-website" name="resource-website" required>
+  <form id="resource-form">
+    <div class="form-group">
+      <label for="resource-name">Resource Name</label>
+      <input type="text" id="resource-name" required>
+    </div>
 
-        <button type="submit">Submit Resource</button>
-      </form>
+    <div class="form-group">
+      <label for="resource-location">Location</label>
+      <input type="text" id="resource-location" required>
+    </div>
 
-      <p class="submit-instructions"> 
-        Please submit only resources that are relevant to our community. We appreciate entries that are helpful, trustworthy, and provide value to everyone who visits this page.
-      </p>
-      <p id="form-message"></p>
-    </section>
-  </main>
+    <div class="form-group">
+      <label for="resource-website">Website</label>
+      <input type="url" id="resource-website" required>
+    </div>
+
+    <button type="submit">Submit Resource</button>
+  </form>
+
+  <p id="form-message" class="thank-you-message"></p>
+</section>
+
 
    <footer>
     <div class="footer-container">

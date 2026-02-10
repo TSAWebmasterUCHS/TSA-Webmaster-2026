@@ -126,3 +126,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderCalendar();
 });
+
+
+const searchInput = document.getElementById("resource-search");
+
+if (searchInput) {
+  searchInput.addEventListener("input", () => {
+    const term = searchInput.value.toLowerCase();
+    document.querySelectorAll(".resource-card").forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.style.display = text.includes(term) ? "block" : "none";
+    });
+  });
+}

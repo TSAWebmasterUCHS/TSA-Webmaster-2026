@@ -1,5 +1,4 @@
-console.log("JavaScript is connected!"); 
-console.log("Calendar loaded");
+console.log("JavaScript is connected!");
 
 // -------------------- EVENTS LIST --------------------
 const eventsListData = [
@@ -41,7 +40,7 @@ const eventsListData = [
   }
 ];
 
-// -------------------- POPULATE EVENTS LIST --------------------
+// Populate Events List
 const eventList = document.getElementById("eventlist");
 if (eventList) {
   eventsListData.forEach(event => {
@@ -59,68 +58,71 @@ if (eventList) {
 
 // -------------------- CALENDAR --------------------
 document.addEventListener("DOMContentLoaded", () => { 
-  console.log("Calendar loaded"); 
+  console.log("Calendar loaded");
 
+  const monthYear = document.getElementById("monthYear");
   const calendarGrid = document.querySelector(".calendar-grid");
-  if (calendarGrid) { 
-    calendarGRid.innerHTML = "<div style='color:red'>Calendar test works! </div>";
+  const prevMonth = document.getElementById("prevMonth");
+  const nextMonth = document.getElementById("nextMonth");
 
-// -------------------- SPOTLIGHT RESOURCES --------------------
-const ourResources = [
-  {
-    name: "Union County Library",
-    description: "A great place for books, events, and learning resources for all ages.",
-    website: "https://www.unioncountylibrary.com",
-    spotlight: true
-  },
-  {
-    name: "Community Garden",
-    description: "Volunteer-run garden offering fresh produce and gardening classes.",
-    website: "https://www.communitygarden.org",
-    spotlight: true
-  },
-  {
-    name: "Local Youth Center",
-    description: "After-school programs, sports, and mentoring for children and teens.",
-    website: "https://www.localyouthcenter.com",
-    spotlight: true
-  },
-  {
-    name: "Historical Society",
-    description: "Preserving local history with tours, exhibits, and educational programs.",
-    website: "https://www.historicalsociety.org",
-    spotlight: false
-  },
-  {
-    name: "Food Bank",
-    description: "Helps families in need with food and essentials.",
-    website: "https://www.localfoodbank.org",
-    spotlight: false
-  }
-];
+  const calendarEvents = {};
+  eventsListData.forEach(e => {
+    calendarEvents[e.date] = { name: e.title, link: "#" }; // link optional
+  });
 
-// Containers
-const spotlightList = document.querySelector(".spotlight-list");
-const allResourcesList = document.querySelector(".all-resources-list");
+  let currentDate = new Date();
 
-ourResources.forEach(resource => {
-  const card = document.createElement("div");
-    card.classlist.add("spotlight-card");
-    card.innerHTML = `
-      <h3>${resource.name}</h3>
-      <p>${resource.description}</p>
-      <p>Website: <a href="${resource.website}" target="_blank">${resource.website}</a></p>
+  function renderCalendar() {
+    if (!calendarGrid || !monthYear) return;
+
+    calendarGrid.innerHTML = `
+      <div class="day-name">Sun</div>
+      <div class="day-name">Mon</div>
+      <div class="day-name">Tue</div>
+      <div class="day-name">Wed</div>
+      <div class="day-name">Thu</div>
+      <div class="day-name">Fri</div>
+      <div class="day-name">Sat</div>
     `;
-    spotlightList.appendChild(card); 
-  } 
-}); 
 
-const allResources = document.getElementById("all-resources");
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
 
-resource.foreach(resource => {
-  const li = document.createElement("li"); 
-  li.innerHTML = '<a href="${resource.website}" target="_blank">${resource.name}</a>'; 
-  allResourcesList.appendChild(li);
+    monthYear.textContent = currentDate.toLocaleString("default", {
+      month: "long",
+      year: "numeric"
+    });
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const lastDate = new Date(year, month + 1, 0).getDate();
+
+    // empty cells before first day
+    for (let i = 0; i < firstDay; i++) {
+      calendarGrid.innerHTML += `<div class="day empty"></div>`;
+    }
+
+    // fill days
+    for (let day = 1; day <= lastDate; day++) {
+      const fullDate = `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+      let classes = "day";
+      let eventHTML = "";
+      if (calendarEvents[fullDate]) {
+        classes += " has-event";
+        eventHTML = `<a href="${calendarEvents[fullDate].link}" target="_blank">${calendarEvents[fullDate].name}</a>`;
+      }
+
+      calendarGrid.innerHTML += `<div class="${classes}"><div class="day-number">${day}</div>${eventHTML}</div>`;
+    }
+  }
+
+  if (prevMonth) prevMonth.addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+  });
+  if (nextMonth) nextMonth.addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+  });
+
+  renderCalendar();
 });
- 
-console.log("End of JS file reached");

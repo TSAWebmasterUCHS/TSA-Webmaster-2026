@@ -352,7 +352,7 @@ footer {
 .events-hero img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* makes image cover entire area */
+  object-fit: cover; /* makes image cover entire area */
   filter: brightness(50%); /* darken image so text pops */
   position: absolute;
   top: 0;

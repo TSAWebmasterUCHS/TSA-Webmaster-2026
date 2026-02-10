@@ -544,7 +544,7 @@ footer {
 }
 
 .community-hero {
-  background-image: url('blob:chrome-untrusted://media-app/29d8d1ee-d0b2-44d9-9ed9-5a7b3e031cee');
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/7f/Lake_Trahlyta%2C_Vogel_State_Park%2C_Oct_2016_1.jpg');
   background-size: cover;      /* makes image fill the section */
   background-position: center; /* centers the image */
   height: 400px;               /* sets section height */

@@ -579,3 +579,40 @@ footer {
   border-radius: 10px 10px 0 0;
   margin-bottom: 12px;
 }
+
+.spotlight-hero {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/7f/Lake_Trahlyta%2C_Vogel_State_Park%2C_Oct_2016_1.jpg');
+  background-size: cover;      /* makes image fill the section */
+  background-position: center; /* centers the image */
+  height: 400px;               /* sets section height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.spotlight-hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* optional dark overlay for text */
+}
+
+.spotlight-hero .hero-text {
+  position: relative;  /* brings text above overlay */
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+
+.spotlight-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 12px;
+}

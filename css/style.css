@@ -544,39 +544,29 @@ footer {
 }
 
 .community-hero {
-  position: relative;
-  text-align: center;
-  height: 400px;               /* adjust height as needed */
+  background-image: url('https://dt5602vnjxv0c.cloudfront.net/portals/13830/images/8.jpg');
+  background-size: cover;      /* makes image fill the section */
+  background-position: center; /* centers the image */
+  height: 400px;               /* sets section height */
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  color: white;
+  text-align: center;
+  position: relative;
 }
 
-.community-hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;           /* zooms out to cover entire area */
-  filter: brightness(50%);     /* optional dark overlay for text readability */
+.community-hero::after {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* optional dark overlay for text */
 }
 
 .community-hero .hero-text {
-  position: relative;
-  color: white;
+  position: relative;  /* brings text above overlay */
   z-index: 1;
   max-width: 800px;
   padding: 0 20px;
-}
-
-.community-hero .hero-text h1 {
-  font-size: 3rem;
-  margin: 0 0 10px;
-}
-
-.community-hero .hero-text p {
-  font-size: 1.5rem;
-  margin: 0;
 }

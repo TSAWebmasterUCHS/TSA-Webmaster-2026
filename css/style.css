@@ -415,3 +415,60 @@ footer {
   max-width: 700px;
   line-height: 1.5;
 }
+
+.submit-card {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.submit-instructions {
+  margin-bottom: 25px;
+  font-size: 16px;
+  color: #444;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.submit-card button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #2f6b4f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submit-card button:hover {
+  background-color: #25543f;
+}
+
+.thank-you-message {
+  margin-top: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2f6b4f;
+  text-align: center;
+  display: none;
+}

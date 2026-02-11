@@ -3,18 +3,18 @@ console.log("JavaScript is connected!");
 // -------------------- EVENTS LIST --------------------
 const eventsListData = [
   { 
-    title: "5th Annual Spring Downtown Market ", 
-    startDate: "2026-04-19", 
+    title: "5th Annual Spring Downtown Market",
+    startDate: "2026-04-19",
     endDate: "2026-04-19",
-    location: "Downtown Blairsville",  
-    description: "Enjoy local vendors, crafts, fresh produce, and live music." 
-  }, 
+    location: "Downtown Blairsville",
+    description: "Enjoy local vendors, crafts, fresh produce, and live music."
+  },
   {
-    title: "Memorial Day Parade", 
+    title: "Memorial Day Parade",
     startDate: "2026-05-24",
     endDate: "2026-05-24",
-    location: "Downtown Blairsville", 
-    description: "Watch and enjoy Blairsville salute those who have served our country." 
+    location: "Downtown Blairsville",
+    description: "Watch and enjoy Blairsville salute those who have served our country."
   },
   {
     title: "Butternut Creek Festival",
@@ -39,24 +39,8 @@ const eventsListData = [
   }
 ];
 
-// Populate Events List
-const eventList = document.getElementById("eventlist");
-if (eventList) {
-  eventsListData.forEach(event => {
-    const card = document.createElement("div");
-    card.classList.add("event-card");
-    card.innerHTML = `
-      <h3>${event.title}</h3>
-      <p><strong>Date:</strong> ${event.date}</p>
-      <p><strong>Location:</strong> ${event.location}</p>
-      <p>${event.description}</p>
-    `;
-    eventList.appendChild(card);
-  });
-}
-
 // -------------------- CALENDAR --------------------
-document.addEventListener("DOMContentLoaded", () => { 
+document.addEventListener("DOMContentLoaded", () => {
   console.log("Calendar loaded");
 
   const monthYear = document.getElementById("monthYear");
@@ -95,34 +79,34 @@ document.addEventListener("DOMContentLoaded", () => {
       calendarGrid.innerHTML += `<div class="day empty"></div>`;
     }
 
+    // fill days
     for (let day = 1; day <= lastDate; day++) {
-  const fullDate = `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
-  
-  // Initialize classes and content for this day
-  let classes = "day";
-  let eventHTML = "";
+      const fullDate = `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
 
-  const currentDay = new Date(fullDate);
+      let classes = "day";
+      let eventHTML = "";
 
-  // Check each event to see if it occurs on this day (supports multi-day events)
-  eventsListData.forEach(event => {
-    const start = new Date(event.startDate || event.date);
-    const end = new Date(event.endDate || event.date);
+      const currentDay = new Date(fullDate);
 
-    if (currentDay >= start && currentDay <= end) {
-      classes += " has-event";
-      eventHTML += `<div>${event.title}</div>`;
+      eventsListData.forEach(event => {
+        const start = new Date(event.startDate);
+        const end = new Date(event.endDate);
+
+        if (currentDay >= start && currentDay <= end) {
+          classes += " has-event";
+          eventHTML += `<div class="event-title">${event.title}</div>`;
+        }
+      });
+
+      calendarGrid.innerHTML += `<div class="${classes}"><div class="day-number">${day}</div>${eventHTML}</div>`;
     }
-  });
-
-   // Add the day to the calendar
-  calendarGrid.innerHTML += `<div class="${classes}"><div class="day-number">${day}</div>${eventHTML}</div>`;
-}
+  }
 
   if (prevMonth) prevMonth.addEventListener("click", () => {
     currentDate.setMonth(currentDate.getMonth() - 1);
     renderCalendar();
   });
+
   if (nextMonth) nextMonth.addEventListener("click", () => {
     currentDate.setMonth(currentDate.getMonth() + 1);
     renderCalendar();
@@ -130,16 +114,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderCalendar();
 });
-
-
-const searchInput = document.getElementById("resource-search");
-
-if (searchInput) {
-  searchInput.addEventListener("input", () => {
-    const term = searchInput.value.toLowerCase();
-    document.querySelectorAll(".resource-card").forEach(card => {
-      const text = card.textContent.toLowerCase();
-      card.style.display = text.includes(term) ? "block" : "none";
-    });
-  });
-}

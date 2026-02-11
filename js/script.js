@@ -3,10 +3,10 @@ console.log("JavaScript is connected!");
 // -------------------- EVENTS LIST --------------------
 const eventsListData = [
   { 
-    title: "Union County Farmers Market", 
-    date: "2026-03-15", 
+    title: "5th Annual Spring Downtown Market ", 
+    date: "2026-04-19", 
     location: "Downtown Blairsville",  
-    description: "Fresh local produce and family-friendly activities." 
+    description: "Enjoy local vendors, crafts, fresh produce, and live music." 
   }, 
   { 
     title: "Library Story Time", 

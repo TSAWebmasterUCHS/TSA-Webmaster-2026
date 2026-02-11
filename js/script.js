@@ -4,32 +4,36 @@ console.log("JavaScript is connected!");
 const eventsListData = [
   { 
     title: "5th Annual Spring Downtown Market ", 
-    date: "2026-04-19", 
+    startDate: "2026-04-19", 
+    endDate: "2026-04-19",
     location: "Downtown Blairsville",  
     description: "Enjoy local vendors, crafts, fresh produce, and live music." 
   }, 
   {
     title: "Memorial Day Parade", 
-    date: "2026-05-24",
+    startDate: "2026-05-24",
+    endDate: "2026-05-24",
     location: "Downtown Blairsville", 
     description: "Watch and enjoy Blairsville salute those who have served our country." 
   },
   {
     title: "Butternut Creek Festival",
-    startdate: "2026-06-19",
-    enddate: "2026-06-20"
+    startDate: "2026-06-19",
+    endDate: "2026-06-20",
     location: "Meeks Park",
     description: "Celebrate the art of the mountain region with handcrafted arts and crafts, as well as live entertainment."
   },
   {
     title: "Local Business Workshop",
-    date: "2026-03-18",
+    startDate: "2026-03-18",
+    endDate: "2026-03-18",
     location: "Community Center",
     description: "Workshop for local business owners."
   },
   {
     title: "Spring Festival",
-    date: "2026-03-25",
+    startDate: "2026-03-25",
+    endDate: "2026-03-25",
     location: "Town Park",
     description: "Fun festival with games and food."
   }
@@ -59,11 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const calendarGrid = document.querySelector(".calendar-grid");
   const prevMonth = document.getElementById("prevMonth");
   const nextMonth = document.getElementById("nextMonth");
-
-  const calendarEvents = {};
-  eventsListData.forEach(e => {
-    calendarEvents[e.date] = { name: e.title, link: "#" }; // link optional
-  });
 
   let currentDate = new Date();
 
@@ -96,19 +95,29 @@ document.addEventListener("DOMContentLoaded", () => {
       calendarGrid.innerHTML += `<div class="day empty"></div>`;
     }
 
-    // fill days
     for (let day = 1; day <= lastDate; day++) {
-      const fullDate = `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
-      let classes = "day";
-      let eventHTML = "";
-      if (calendarEvents[fullDate]) {
-        classes += " has-event";
-        eventHTML = `<a href="${calendarEvents[fullDate].link}" target="_blank">${calendarEvents[fullDate].name}</a>`;
-      }
+  const fullDate = `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+  
+  // Initialize classes and content for this day
+  let classes = "day";
+  let eventHTML = "";
 
-      calendarGrid.innerHTML += `<div class="${classes}"><div class="day-number">${day}</div>${eventHTML}</div>`;
+  const currentDay = new Date(fullDate);
+
+  // Check each event to see if it occurs on this day (supports multi-day events)
+  eventsListData.forEach(event => {
+    const start = new Date(event.startDate || event.date);
+    const end = new Date(event.endDate || event.date);
+
+    if (currentDay >= start && currentDay <= end) {
+      classes += " has-event";
+      eventHTML += `<div>${event.title}</div>`;
     }
-  }
+  });
+
+   // Add the day to the calendar
+  calendarGrid.innerHTML += `<div class="${classes}"><div class="day-number">${day}</div>${eventHTML}</div>`;
+}
 
   if (prevMonth) prevMonth.addEventListener("click", () => {
     currentDate.setMonth(currentDate.getMonth() - 1);

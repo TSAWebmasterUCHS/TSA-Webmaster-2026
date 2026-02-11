@@ -1,95 +1,110 @@
-/* ========================= */
-/* HISTORY PAGE STYLING */
-/* ========================= */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blairsville History</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-body {
-  background-color: #f4f8f5;
-}
+  <!-- NAVIGATION -->
+  <header class="main-header">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ourcommunity.html">Our Community</a></li>
+        <li><a href="spotlight.html">Spotlight</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="history.html" class="active">History</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
 
-/* HERO */
-.history-hero {
-  background: linear-gradient(rgba(0, 60, 30, 0.6), rgba(0, 60, 30, 0.6)),
-              url("../images/blairsville-old-town.jpg") center/cover no-repeat;
-  height: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  <!-- HERO SECTION -->
+  <section class="history-hero">
+    <div class="hero-overlay">
+      <h1>Blairsville History</h1>
+      <p>Discover the rich history and heritage of Blairsville, Georgia.</p>
+    </div>
+  </section>
 
-.hero-overlay {
-  text-align: center;
-  color: white;
-}
+  <!-- MAIN CONTENT -->
+  <main class="history-container">
 
-.hero-overlay h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
+    <section class="history-section">
+      <h2>Early Settlement</h2>
+      <p>
+        Blairsville, Georgia was established in 1835 after Union County was created during the Georgia Gold Rush of the early 1830s. Before European American settlement, the area was home to the Cherokee Nation until they were removed during the Trail of Tears. After the land was opened through a lottery system, farmers and gold seekers settled in the region, building homes, churches, and businesses. Blairsville became the county seat and grew into an important mountain community centered on agriculture and local government.
+      </p>
+    </section>
 
-.hero-overlay p {
-  font-size: 18px;
-}
+    <section class="history-section">
+      <h2>Historic Landmarks</h2>
+      <p>
+        Blairsville is home to several historic landmarks that reflect its mountain heritage. The Union County Courthouse, built in 1899, stands in the center of town as a symbol of early growth. The Byron Herbert Reece Farm and Heritage Center preserves the home of Georgia poet Byron Herbert Reece and celebrates Appalachian culture. Historic churches, cemeteries, and buildings from the late 1800s offer visitors a glimpse into the past.
+      </p>
+    </section>
 
-/* MAIN CONTAINER */
-.history-container {
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
+    <section class="history-section">
+      <h2>Cultural Heritage</h2>
+      <p>
+        Blairsville’s culture is rooted in Appalachian traditions and mountain life. Bluegrass music, storytelling, handmade crafts, and local festivals continue to shape the community today. Events and fairs bring residents together while honoring both pioneer history and Cherokee heritage. The town values preserving traditions while continuing to grow.
+      </p>
+    </section>
 
-/* SECTIONS */
-.history-section {
-  background: white;
-  padding: 30px;
-  margin-bottom: 40px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease;
-}
+    <section class="history-section">
+      <h2>Modern Development</h2>
+      <p>
+        In recent years, Blairsville has experienced steady growth while maintaining its small-town charm. New businesses and tourism opportunities have strengthened the local economy. Improvements to schools, roads, and community facilities support a growing population, while outdoor attractions like Lake Nottely and Brasstown Bald continue to draw visitors.
+      </p>
+    </section>
 
-.history-section:hover {
-  transform: translateY(-5px);
-}
+    <!-- IMAGE GALLERY -->
+    <section class="history-gallery">
+      <img src="images/blairsville-old-town.jpg" alt="Historic Downtown Blairsville">
+      <img src="images/blairsville-festival.jpg" alt="Blairsville Heritage Festival">
+    </section>
 
-/* SECTION HEADINGS */
-.history-section h2 {
-  color: #1f3d2b;
-  margin-bottom: 15px;
-  font-size: 24px;
-  border-bottom: 3px solid #4caf50;
-  display: inline-block;
-  padding-bottom: 5px;
-}
+  </main>
 
-/* PARAGRAPHS */
-.history-section p {
-  line-height: 1.7;
-  color: #444;
-  font-size: 16px;
-}
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Main Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ourcommunity.html">Our Community</a></li>
+          <li><a href="spotlight.html">Spotlight</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
 
-/* IMAGE GALLERY */
-.history-gallery {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 50px;
-}
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>(706) 555-1234</p>
+        <p>Union County, GA</p>
+        <p>info@communityhub.org</p>
+      </div>
 
-.history-gallery img {
-  width: 48%;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
-}
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="refunds.html">Sales & Refunds</a></li>
+        </ul>
+      </div>
+    </div>
 
-.history-gallery img:hover {
-  transform: scale(1.03);
-}
+    <div class="footer-bottom">
+      © 2026 Union County Community Hub. All rights reserved.
+    </div>
+  </footer>
 
-/* ACTIVE NAV LINK */
-.nav-links a.active {
-  color: #4caf50;
-  font-weight: bold;
-}
+</body>
+</html>

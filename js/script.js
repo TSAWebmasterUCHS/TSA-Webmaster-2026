@@ -9,16 +9,17 @@ const eventsListData = [
     description: "Enjoy local vendors, crafts, fresh produce, and live music." 
   }, 
   {
-    title: "Community Health Fair", 
-    date: "2026-04-05",
-    location: "Union General Hospital", 
-    description: "Free screenings and health resources for families." 
+    title: "Memorial Day Parade", 
+    date: "2026-05-24",
+    location: "Downtown Blairsville", 
+    description: "Watch and enjoy Blairsville salute those who have served our country." 
   },
   {
-    title: "Community Cleanup Day",
-    date: "2026-03-12",
-    location: "Main Street",
-    description: "Neighborhood cleanup event."
+    title: "Butternut Creek Festival",
+    startdate: "2026-06-19",
+    enddate: "2026-06-20"
+    location: "Meeks Park",
+    description: "Celebrate the art of the mountain region with handcrafted arts and crafts, as well as live entertainment."
   },
   {
     title: "Local Business Workshop",

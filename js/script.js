@@ -8,6 +8,7 @@ const eventsListData = [
     endDate: "2026-04-19",
     location: "Downtown Blairsville",
     description: "Enjoy local vendors, crafts, fresh produce, and live music."
+    link: ""
   },
   {
     title: "Memorial Day Parade",
@@ -15,28 +16,64 @@ const eventsListData = [
     endDate: "2026-05-24",
     location: "Downtown Blairsville",
     description: "Watch and enjoy Blairsville salute those who have served our country."
+    link: ""
   },
   {
     title: "Butternut Creek Festival",
-    startDate: "2026-06-19",
-    endDate: "2026-06-20",
+    startDate: "2026-07-19",
+    endDate: "2026-07-20",
     location: "Meeks Park",
     description: "Celebrate the art of the mountain region with handcrafted arts and crafts, as well as live entertainment."
+    link: "https://www.butternutcreekfestival.com/"
   },
   {
-    title: "Local Business Workshop",
-    startDate: "2026-03-18",
-    endDate: "2026-03-18",
-    location: "Community Center",
-    description: "Workshop for local business owners."
+    title: "Mountain Heritage Festival",
+    startDate: "2026-08-30",
+    endDate: "2026-08-31",
+    location: "Mountain Life Museum",
+    description: "Celebrate Appalachian culture with live music, crafts, and local food."
+    link: "https://www.unioncountyhistory.org/"
   },
   {
-    title: "Spring Festival",
-    startDate: "2026-03-25",
-    endDate: "2026-03-25",
-    location: "Town Park",
-    description: "Fun festival with games and food."
-  }
+    title: "Mountain Music Day at Vogel State Park",
+    startDate: "2026-09-13",
+    endDate: "2026-09-13",
+    location: "Vogel State Park",
+    description: "Enjoy the Mountain Music Day with traditional Appalachian tunes, and family-friendly fun in the North Georgia Mountains."
+    link: "https://gastateparks.org/Vogel"
+  } 
+  {
+    title: "BEAR Blairsville Extreme Adventure Race",
+    startDate: "2026-09-20",
+    endDate: "2026-09-20",
+    location: "Meeks Park",
+    description: "Teams explore the mountains, rivers, lakes, and woods around Blairsville through this eight-hour race."
+    link: "https://www.warriorraces.com/bear"
+  }, 
+  {
+    title: "Indian Summer Festival",
+    startDate: "2026-10-4",
+    endDate: "2026-10-5",
+    location: "Woody Gap School",
+    description: "Enjoy activities including a craft sale, auctions, live entertainment, local food, and much more."
+    link: "https://www.indiansummerfestival.org/"
+  }, 
+  {
+    title: "Sorghum in the Mountains Festival",
+    startDate: "2026-10-11",
+    endDate: "2026-10-12",
+    location: "Meeks Park",
+    description: "Celebrate the art of Sorghum Syrup Making with arts/crafts, live music, log sawin, and many more."
+    link: "https://www.sorghuminthemountains.com/"
+  }, 
+  {
+    title: "Blairsville Boo Bash",
+    startDate: "2026-10-31",
+    endDate: "2026-10-31",
+    location: "Meeks Park",
+    description: "Bring the kids and join the fun with a spectacular trick-or-treat event!"
+    link: ""
+  },
 ];
 
 // -------------------- CALENDAR --------------------

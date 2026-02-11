@@ -9,10 +9,10 @@ const eventsListData = [
     description: "Enjoy local vendors, crafts, fresh produce, and live music." 
   }, 
   { 
-    title: "Library Story Time", 
-    date: "2026-03-20",  
-    location: "Union County Public Library", 
-    description: "Weekly reading event for young children." 
+    title: "Sorghum in the Mountains Festival", 
+    date: "2026-10-11", "2026-10-12", "2026-10-18", "2026-10-19",  
+    location: "Meeks Park", 
+    description: "Celebrate the Art of Sorghum Syrup Making, with Arts/Crafts, Live Music, Log Sawin', and many more." 
   },
   {
     title: "Community Health Fair", 

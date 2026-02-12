@@ -7,7 +7,7 @@ const eventsListData = [
     startDate: "2026-04-19",
     endDate: "2026-04-19",
     location: "Downtown Blairsville",
-    description: "Enjoy local vendors, crafts, fresh produce, and live music."
+    description: "Enjoy local vendors, crafts, fresh produce, and live music.",
     link: ""
   },
   {
@@ -15,7 +15,7 @@ const eventsListData = [
     startDate: "2026-05-24",
     endDate: "2026-05-24",
     location: "Downtown Blairsville",
-    description: "Watch and enjoy Blairsville salute those who have served our country."
+    description: "Watch and enjoy Blairsville salute those who have served our country.",
     link: ""
   },
   {
@@ -23,7 +23,7 @@ const eventsListData = [
     startDate: "2026-07-19",
     endDate: "2026-07-20",
     location: "Meeks Park",
-    description: "Celebrate the art of the mountain region with handcrafted arts and crafts, as well as live entertainment."
+    description: "Celebrate the art of the mountain region with handcrafted arts and crafts, as well as live entertainment.",
     link: "https://www.butternutcreekfestival.com/"
   },
   {
@@ -31,7 +31,7 @@ const eventsListData = [
     startDate: "2026-08-30",
     endDate: "2026-08-31",
     location: "Mountain Life Museum",
-    description: "Celebrate Appalachian culture with live music, crafts, and local food."
+    description: "Celebrate Appalachian culture with live music, crafts, and local food.",
     link: "https://www.unioncountyhistory.org/"
   },
   {
@@ -39,7 +39,7 @@ const eventsListData = [
     startDate: "2026-09-13",
     endDate: "2026-09-13",
     location: "Vogel State Park",
-    description: "Enjoy the Mountain Music Day with traditional Appalachian tunes, and family-friendly fun in the North Georgia Mountains."
+    description: "Enjoy the Mountain Music Day with traditional Appalachian tunes, and family-friendly fun in the North Georgia Mountains.",
     link: "https://gastateparks.org/Vogel"
   } 
   {
@@ -47,7 +47,7 @@ const eventsListData = [
     startDate: "2026-09-20",
     endDate: "2026-09-20",
     location: "Meeks Park",
-    description: "Teams explore the mountains, rivers, lakes, and woods around Blairsville through this eight-hour race."
+    description: "Teams explore the mountains, rivers, lakes, and woods around Blairsville through this eight-hour race.",
     link: "https://www.warriorraces.com/bear"
   }, 
   {
@@ -55,7 +55,7 @@ const eventsListData = [
     startDate: "2026-10-4",
     endDate: "2026-10-5",
     location: "Woody Gap School",
-    description: "Enjoy activities including a craft sale, auctions, live entertainment, local food, and much more."
+    description: "Enjoy activities including a craft sale, auctions, live entertainment, local food, and much more.",
     link: "https://www.indiansummerfestival.org/"
   }, 
   {
@@ -63,7 +63,7 @@ const eventsListData = [
     startDate: "2026-10-11",
     endDate: "2026-10-12",
     location: "Meeks Park",
-    description: "Celebrate the art of Sorghum Syrup Making with arts/crafts, live music, log sawin', and many more."
+    description: "Celebrate the art of Sorghum Syrup Making with arts/crafts, live music, log sawin', and many more.",
     link: "https://www.sorghuminthemountains.com/"
   }, 
   {
@@ -71,7 +71,7 @@ const eventsListData = [
     startDate: "2026-10-31",
     endDate: "2026-10-31",
     location: "Meeks Park",
-    description: "Bring the kids and join the fun with a spectacular trick-or-treat event!"
+    description: "Bring the kids and join the fun with a spectacular trick-or-treat event!",
     link: ""
   },
 ];

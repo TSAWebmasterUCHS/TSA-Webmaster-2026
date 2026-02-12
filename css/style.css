@@ -737,3 +737,55 @@ footer {
 #community-intro {
   padding-top: 10px;
 }
+
+/* ---------- School Project Fancy Styling ---------- */
+
+/* Main content card styling */
+#community-intro {
+  background-color: #fdfaf5; /* soft cream background */
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: 30px auto;
+  max-width: 900px;
+  font-family: 'Georgia', serif;
+}
+
+/* Paragraph styling */
+#community-intro p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 22px;
+  text-align: justify;
+}
+
+/* First letter accent for style */
+#community-intro p::first-letter {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #2c5f2d; /* dark green accent */
+  float: left;
+  margin-right: 5px;
+  line-height: 1;
+}
+
+/* Section headings */
+#community-intro h2 {
+  font-family: 'Georgia', serif;
+  color: #1f3d2b;
+  border-bottom: 2px solid #2c5f2d;
+  padding-bottom: 5px;
+  margin-bottom: 18px;
+}
+
+/* Add subtle hover effect on links if any */
+#community-intro a {
+  color: #2c5f2d;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+#community-intro a:hover {
+  color: #1f3d2b;
+}

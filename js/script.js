@@ -1,7 +1,23 @@
 console.log("JavaScript is connected!");
 
 // -------------------- EVENTS LIST --------------------
-const eventsListData = [
+const eventsListData = [ 
+  { 
+    title: "Valentine's Day Music Bingo at Lucky's",
+    startDate: "2026-02-014",
+    endDate: "2026-02-014",
+    location: "Lucky's Taqueria & Cantina",
+    description: "A themed night full of fun for all ages.",
+    link: "https://members.visitblairsvillega.com/events/details/valentine-s-day-music-bingo-at-lucky-s-143214"
+  },
+  { 
+    title: "Downtown Blairsville Chocolate Walk",
+    startDate: "2026-02-07",
+    endDate: "2026-02-07",
+    location: "Downtown Blairsville",
+    description: "Stroll downtown to collect chocolate treats.",
+    link: ""
+  },
   { 
     title: "5th Annual Spring Downtown Market",
     startDate: "2026-04-19",

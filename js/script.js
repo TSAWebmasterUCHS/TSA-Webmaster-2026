@@ -63,7 +63,7 @@ const eventsListData = [
     startDate: "2026-10-11",
     endDate: "2026-10-12",
     location: "Meeks Park",
-    description: "Celebrate the art of Sorghum Syrup Making with arts/crafts, live music, log sawin, and many more."
+    description: "Celebrate the art of Sorghum Syrup Making with arts/crafts, live music, log sawin', and many more."
     link: "https://www.sorghuminthemountains.com/"
   }, 
   {

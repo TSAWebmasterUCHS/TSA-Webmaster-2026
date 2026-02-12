@@ -789,37 +789,3 @@ footer {
 #community-intro a:hover {
   color: #1f3d2b;
 }
-
-.events-layout {
-  display: flex;
-  gap: 40px;
-  padding: 40px;
-  align-items: flex-start;
-}
-
-.events-content {
-  flex: 1;
-}
-
-.right-map {
-  flex: 1;
-}
-
-.right-map iframe {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* Responsive for mobile */
-@media (max-width: 768px) {
-  .events-layout {
-    flex-direction: column;
-  }
-
-  .right-map, .events-content {
-    width: 100%;
-  }
-}
-
-
-

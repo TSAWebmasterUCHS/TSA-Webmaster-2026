@@ -76,22 +76,6 @@ const eventsListData = [
   }
 ];
 
-// -------------------- POPULATE EVENTS LIST --------------------
-const eventList = document.getElementById("eventlist");
-if (eventList) {
-  eventsListData.forEach(event => {
-    const card = document.createElement("div");
-    card.classList.add("event-card");
-    card.innerHTML = `
-      <h3>${event.title}</h3>
-      <p><strong>Date:</strong> ${event.startDate}${event.startDate !== event.endDate ? ' - ' + event.endDate : ''}</p>
-      <p><strong>Location:</strong> ${event.location}</p>
-      <p>${event.description}</p>
-    `;
-    eventList.appendChild(card);
-  });
-}
-
 // -------------------- CALENDAR --------------------
 document.addEventListener("DOMContentLoaded", () => { 
   console.log("Calendar loaded");

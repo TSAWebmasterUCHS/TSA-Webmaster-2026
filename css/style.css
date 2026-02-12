@@ -670,3 +670,49 @@ footer {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
+
+/* Hero Section */
+.community-hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('../images/mountains.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-text h1 {
+  color: white;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  color: #f0f0f0;
+  font-size: 1.2rem;
+}
+
+/* Content Card */
+.content-card {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  line-height: 1.8;
+}
+
+.content-card h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #1f3d2b;
+}
+
+/* Active Nav Link */
+.nav-links .active {
+  border-bottom: 2px solid #1f3d2b;
+}

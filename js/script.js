@@ -42,7 +42,7 @@ const eventsListData = [
     location: "Vogel State Park",
     description: "Enjoy the Mountain Music Day with traditional Appalachian tunes, and family-friendly fun in the North Georgia Mountains.",
     link: "https://gastateparks.org/Vogel"
-  } 
+  }, 
   {
     title: "BEAR Blairsville Extreme Adventure Race",
     startDate: "2026-09-20",
@@ -53,8 +53,8 @@ const eventsListData = [
   }, 
   {
     title: "Indian Summer Festival",
-    startDate: "2026-10-4",
-    endDate: "2026-10-5",
+    startDate: "2026-10-04",
+    endDate: "2026-10-05",
     location: "Woody Gap School",
     description: "Enjoy activities including a craft sale, auctions, live entertainment, local food, and much more.",
     link: "https://www.indiansummerfestival.org/"
@@ -149,7 +149,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (currentDay >= start && currentDay <= end) {
       classes += " has-event";
-      eventHTML += `<div>${event.title}</div>`;
+      if (event.link) {
+        eventHTML += '<a href="${event.link}" target="_blank" class="event-title">${event.title}</a><br>';
+      } else {
+        eventHTML += `<div class="event.title".${event.title}</div>`;
     }
   });
 

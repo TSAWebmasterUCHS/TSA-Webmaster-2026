@@ -85,7 +85,7 @@ if (eventList) {
     card.classList.add("event-card");
     card.innerHTML = `
       <h3>${event.title}</h3>
-      <p><strong>Date:</strong> ${event.startDate}${event.startDate ! == event.endDate ? ' - ' = event.endDate : ''}</p>
+      <p><strong>Date:</strong> ${event.startDate}${event.startDate !== event.endDate ? ' - ' + event.endDate : ''}</p>
       <p><strong>Location:</strong> ${event.location}</p>
       <p>${event.description}</p>
     `;
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (event.link) {
         eventHTML += `<a href="${event.link}" target="_blank" class="event-title">${event.title}</a><br>`;
       } else {
-        eventHTML += `<div class="event-title".${event.title}</div>`;
+        eventHTML += `<div class="event-title">${event.title}</div>`;
     }
   });
 

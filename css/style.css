@@ -716,3 +716,24 @@ footer {
 .nav-links .active {
   border-bottom: 2px solid #1f3d2b;
 }
+
+/* Improve Paragraph Styling */
+.content-card p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* Add subtle first-line emphasis */
+.content-card p::first-letter {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #1f3d2b;
+}
+
+/* Add spacing between sections */
+#community-intro {
+  padding-top: 10px;
+}

@@ -642,11 +642,17 @@ footer {
 
 .history-hero .hero-text {
   position: relative;  /* brings text above overlay */
-  z-index: 1;
-  max-width: 800px;
-  padding: 0 20px;
-}
+  z-index: 1; 
+} 
+.history-hero h1 {
+    font-size: 3rem; 
+    margin: 0; 
+} 
 
+.hero p { 
+    font-size: 1.5rem; 
+    margin-top: 10px; 
+}
 
 /* Content Card */
 .content-card {

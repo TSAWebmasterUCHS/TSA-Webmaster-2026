@@ -627,7 +627,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: red;
   text-align: center;
   position: relative;
 }

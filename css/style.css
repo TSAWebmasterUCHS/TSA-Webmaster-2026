@@ -809,3 +809,95 @@ footer {
     text-indent: 15px;
   }
 }
+
+/* ============================= */
+/* 📱 Small Phones (480px and below) */
+/* ============================= */
+@media (max-width: 480px) {
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .hero h1,
+  .events-hero .hero-text h1,
+  .spotlight-hero h1,
+  .history-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p,
+  .events-hero .hero-text p,
+  .spotlight-hero p {
+    font-size: 1rem;
+  }
+
+  .intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .day {
+    min-height: 60px;
+    font-size: 11px;
+  }
+
+  .content-card,
+  #community-intro,
+  #history {
+    padding: 15px;
+    margin: 20px;
+  }
+}
+
+
+/* ============================= */
+/* 📱 Large Phones (481px–600px) */
+/* ============================= */
+@media (min-width: 481px) and (max-width: 600px) {
+
+  .intro {
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .day {
+    min-height: 70px;
+  }
+}
+
+
+/* ============================= */
+/* 📲 Tablets (601px–1024px) */
+/* ============================= */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  .intro {
+    flex-direction: column;
+  }
+
+  .spotlight-list,
+  .testimonial-cards {
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+
+/* ============================= */
+/* 💻 Small*
